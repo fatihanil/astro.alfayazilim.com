@@ -1,76 +1,86 @@
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
-import sitemap from "@astrojs/sitemap";
-import tailwindcss from "@tailwindcss/vite";
-import AutoImport from "astro-auto-import";
-import { defineConfig, sharpImageService, fontProviders } from "astro/config";
-import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
-import config from "./src/config/config.json";
-import theme from "./src/config/theme.json";
+import AutoImport from "astro-auto-import";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import rehypeExternalLinks from "rehype-external-links";
+import { enabledLanguages } from "./src/lib/utils/i18nUtils.ts";
+import remarkParseContent from "./src/lib/utils/remarkParseContent.ts";
+import config from "./.astro/config.generated.json";
+import fontsJson from "./src/config/fonts.json";
+import { generateAstroFontsConfig } from "./src/lib/utils/AstroFont.ts";
 
-// Helper to parse font string format: "FontName:wght@400;500;600;700"
-function parseFontString(fontStr) {
-  const [name, weightPart] = fontStr.split(":");
-  let weights = [400]; // default weight
+const fonts = generateAstroFontsConfig(fontsJson);
 
-  if (weightPart) {
-    // Extract weights from wght@400;500;600 format
-    const weightMatch = weightPart.match(/wght@?([\d;]+)/);
-    if (weightMatch) {
-      weights = weightMatch[1].split(";").map((w) => parseInt(w, 10));
-    }
-  }
-
-  // remove + from font name and add space
-  const cleanName = name.replace(/\+/g, " ");
-  return { name: cleanName, weights };
-}
-
-// Build fonts configuration from theme.json
-const fontsConfig = Object.entries(theme.fonts.font_family)
-  .filter(([key]) => !key.includes("_type")) // Filter out type entries
-  .map(([key, fontStr]) => {
-    const { name, weights } = parseFontString(fontStr);
-    const typeKey = `${key}_type`;
-    const fallback = theme.fonts.font_family[typeKey] || "sans-serif";
-
-    return {
-      name,
-      cssVariable: `--font-${key}`,
-      provider: fontProviders.google(),
-      weights,
-      display: "swap",
-      fallbacks: [fallback],
-    };
-  });
+let {
+  seo: { sitemap: sitemapConfig },
+  settings: {
+    multilingual: { showDefaultLangInUrl, defaultLanguage },
+  },
+} = config;
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
-  base: config.site.base_path ? config.site.base_path : "/",
-  trailingSlash: config.site.trailing_slash ? "always" : "never",
-  image: { service: sharpImageService() },
-  vite: { plugins: [tailwindcss()] },
-  fonts: fontsConfig,
+  site: config.site.baseUrl ? config.site.baseUrl : "http://examplesite.com",
+  trailingSlash: config.site.trailingSlash ? "always" : "never",
+  devToolbar: {
+    enabled: false,
+  },
+  image: {
+    layout: "constrained",
+  },
+  fonts,
+
+  i18n: {
+    locales: enabledLanguages,
+    defaultLocale: defaultLanguage,
+    routing: {
+      prefixDefaultLocale: showDefaultLangInUrl,
+    },
+  },
+
   integrations: [
-    react(),
-    sitemap(),
+    sitemapConfig.enable ? sitemap() : null,
     AutoImport({
       imports: [
-        "@/shortcodes/Button",
-        "@/shortcodes/Accordion",
-        "@/shortcodes/Notice",
-        "@/shortcodes/Video",
-        "@/shortcodes/Youtube",
-        "@/shortcodes/Tabs",
-        "@/shortcodes/Tab",
+        "@/shortcodes/ImageList.astro",
+        "@/shortcodes/ImageItem.astro",
+        "@/shortcodes/InfoBlockItem.astro",
+        "@/shortcodes/InfoBlockList.astro",
       ],
     }),
     mdx(),
   ],
+
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
-    shikiConfig: { theme: "one-dark-pro", wrap: true },
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          rel: "noopener noreferrer nofollow",
+          target: "_blank",
+        },
+      ],
+    ],
+    remarkPlugins: [
+      remarkParseContent, // Parse markdown content and add classes in heading and  to images
+      remarkToc,
+    ],
+
+    // Code Highlighter https://github.com/shikijs/shiki
+    shikiConfig: {
+      theme: "light-plus", // https://shiki.style/themes
+      wrap: false,
+    },
+    extendDefaultPlugins: true,
+  },
+
+  vite: {
+    logLevel: "error",
+    build: {
+      minify: true,
+    },
+    plugins: [tailwindcss()],
   },
 });

@@ -1,0 +1,112 @@
+---
+import type { z } from "astro/zod";
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects";
+import type { aboutCompanySectionSchema } from "@/sections.schema";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import Button from "@/components/Button.astro";
+import SectionBadge from "../global/SectionBadge.astro";
+import SectionTitle from "../global/SectionTitle.astro";
+
+type SectionType = Section &
+  NonNullable<z.infer<typeof aboutCompanySectionSchema>>;
+type Props = { content?: SectionType; hasSectionSpacing?: boolean };
+
+let defaultContent = (
+  await getEntryCTM("sections", "about-company-two", Astro.currentLocale)
+)?.data as SectionType;
+
+let actualContent = overrideObjects(
+  { ...defaultContent },
+  Astro.props.content,
+) as SectionType;
+
+const {
+  enable = true,
+  badge,
+  title,
+  image,
+  imageAlt,
+  imageSecondary,
+  imageSecondaryAlt,
+  description,
+  button,
+} = actualContent;
+
+if (!enable) return;
+---
+
+<section id="about" class="relative overflow-hidden scroll-mt-28 pt-0">
+  <div class="container grid grid-cols-1 lg:grid-cols-2 lg:gap-16 xl:gap-32">
+    <div
+      class="section-spacing-vertical z-10 flex flex-col justify-center gap-x-6 gap-y-10 lg:gap-12 xl:gap-14">
+      <div class="flex flex-col gap-1 xl:gap-4">
+        {/* badge */}
+        {badge && <SectionBadge title={badge} />}
+
+        {/* Title */}
+        {title && <SectionTitle title={title} />}
+
+        {/* Button */}
+        {
+          button && (
+            <div
+              class="mt-4 flex"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="600">
+              <Button {...button} class="md:py-4.5" />
+            </div>
+          )
+        }
+      </div>
+
+      {/* Bottom Split (Secondary Image + Description) */}
+      {
+        imageSecondary && (
+          <div
+            class="mt-auto gap-8"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="600">
+            {imageSecondary && (
+              <div class="relative w-full overflow-hidden">
+                <OptimizedImage
+                  src={imageSecondary}
+                  alt={imageSecondaryAlt || "Company image"}
+                  width={545}
+                  height={460}
+                  class="size-full object-cover"
+                />
+              </div>
+            )}
+          </div>
+        )
+      }
+
+      {
+        description && (
+          <p
+            class="text-text-default/70 -mt-2 text-sm md:text-base xl:text-lg"
+            set:html={markdownify(description)}
+          />
+        )
+      }
+    </div>
+    {
+      image && (
+        <OptimizedImage
+          src={image}
+          alt={imageAlt}
+          width={870}
+          height={900}
+          data-aos="fade-left"
+          data-aos-duration="800"
+          class="h-100 w-full overflow-hidden object-cover md:h-150 lg:absolute lg:left-[calc(50%+2rem)] lg:min-h-full lg:max-w-1/2 xl:left-[calc(50%+4rem)]"
+        />
+      )
+    }
+  </div>
+</section>

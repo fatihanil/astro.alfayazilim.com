@@ -1,124 +1,140 @@
-<h1 align=center>Bigspring Light Astro</h1>
-<p align=center>Bigspring is a highly customizable Astro theme designed specifically for SaaS & marketing websites.  
-</p>
-<h2 align="center"> <a target="_blank" href="https://tf-bigspring-light-astro.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbigspring-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+> ⭐️ Love this theme? Star it to support our work!
 
-<p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%406.0.0-beta.17" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=6.0.0-beta.17&color=000&logo=astro" />
-  </a>
+# Lumio Lite
 
-  <a href="https://github.com/themefisher/bigspring-light-astro/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/themefisher/bigspring-light-astro" alt="license"></a>
+**Lumio Lite** is a lightweight, free version of the premium [Lumio Astro Theme](https://getastrothemes.com/astro-themes/lumio/), designed for IT companies, digital agencies, and consulting firms.
 
-  <img src="https://img.shields.io/github/languages/code-size/themefisher/bigspring-light-astro" alt="code size">
+> ⚡ Built with Astro 6, Tailwind CSS 4, and Markdown — optimized for performance, SEO, and simplicity.
 
-  <a href="https://github.com/themefisher/bigspring-light-astro/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/themefisher/bigspring-light-astro" alt="contributors"></a>
-</p>
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/getastrothemes/lumio-lite-astro) [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/getastrothemes/lumio-lite-astro) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/getastrothemes/lumio-lite-astro?devcontainer_path=.devcontainer/devcontainer.json)
 
-![bigspring-light](https://assets.teamosis.com/thumbs/bigspring-light.png)
+![Lumio Lite Banner](/public/images/og-image.jpg)
 
-Bigspring is a beautifully designed & highly customizable Astro theme created specifically for SaaS & marketing websites. Users can customize the color scheme, fonts, menu, social links, etc. and update the content easily based on their requirements. Bigspring is the perfect theme for showcasing your SaaS products or services and connecting with customers.
+## ✨ Features at a Glance
 
-## 🔑Key Features
+- ✅ Localized homepage for English and French
+- ✅ Services list page and localized single service pages
+- ✅ Fully responsive and accessible
+- ✅ SEO-ready: meta tags, Open Graph, JSON-LD schema
+- ✅ Sticky header, localized navigation, and section anchor navigation
+- ✅ Easily deploy to Vercel, Netlify, or Cloudflare Pages
+- ✅ Edit homepage and services content using Markdown and MDX frontmatter
+- ✅ Contact form integration support for Formspree, Formsubmit, and Netlify
 
-- 📄 10+ Pre-Designed Pages
-- ✨ Highly Customizable (Color, Font, Menu, Social Links, SEO Meta Tags, etc.)
-- ⚡ Fast by Default (95+ Google PageSpeed Score)
-- ⚙️ Netlify Settings Pre-configured
-- 📬 Contact Form Support
-- 💰 Pricing Table
-- 🌅 Support OG Image
-- ✍️ Write and Update Content in Markdown / MDX
-- 📚 MDX Components Auto Import
-- 📝 Includes Draft Pages and Posts
-- 🚀 Built with Tailwind CSS Framework
-- 📱 Fully Responsive on Desktops, Tablets, and Smartphones
-- 🔍 SEO Friendly
+## 🔄 Lite vs. Pro — Feature Comparison
 
-## 📄 10+ Pre-Designed Pages
+| Feature                                                       | Lumio Lite | Lumio Pro 💎 |
+| ------------------------------------------------------------- | ---------- | ------------ |
+| Multiple Homepage Layouts                                     | ❌         | ✅           |
+| Premium Scroll & Hover Animations                             | ❌         | ✅           |
+| Creative UI Components (Tabs, Accordions, Testimonials, etc.) | ❌         | ✅           |
+| Pre-built Pages: About, FAQ, Services, Pricing, etc.          | ❌         | ✅           |
+| Blog System (with Markdown & Schema)                          | ❌         | ✅           |
+| Projects/Portfolio Section                                    | ❌         | ✅           |
+| Mega Menu Navigation                                          | ❌         | ✅           |
+| Mutiple Header Layouts                                        | ❌         | ✅           |
+| Mutiple Footer Layouts                                        | ❌         | ✅           |
+| Terms & Privacy Pages (Auto-generated)                        | ❌         | ✅           |
+| Markdown Content Support                                      | ✅         | ✅           |
+| Built-in Contact Form Support                                 | ✅         | ✅           |
+| Fully Multilingual (i18n) Support                             | ✅         | ✅           |
+| SEO Optimized (Meta + OpenGraph + JSON-LD)                    | ✅         | ✅           |
+| 100/100 Lighthouse Score                                      | ✅         | ✅           |
+| Deployment Ready (Vercel, Netlify, Cloudflare)                | ✅         | ✅           |
+| Accessible & Responsive Design                                | ✅         | ✅           |
+| Minimal Animations                                            | ✅         | ✅           |
 
-- 🏠 Home Page
-- 📚 Blog Page
-- 📝 Blog Single Page
-- 💰 Pricing Page
-- 📞 Contact
-- ❓ FAQ Page
-- 🎨 Elements Page
-- 🔒 Privacy Policy
-- 📜 Terms & Conditions
-- 🚧 404 Page
-<!-- installation -->
+> 🎯 **Need more pages and flexibility?**  
+> Upgrade to [Lumio Pro →](https://getastrothemes.com/astro-themes/lumio/) for the full business-ready toolkit.
 
-## ⚙️Installation
+## ⚡ Quick Start
 
-After downloading the template, you have some prerequisites to install. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
-
-### 🔧Install prerequisites (once for a machine)
-
-- **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
-
-### 🖥️Local setup
-
-After successfully installing those dependencies, open this template with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
-
-- 👉Install dependencies
-
-```
+```bash
+git clone https://github.com/getastrothemes/lumio-lite-astro.git
+cd lumio-lite-astro
 npm install
-```
-
-- 👉Run locally
-
-```
 npm run dev
 ```
 
-After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live-reload the browser when changes are saved.
+## 🚀 Project Structure
 
-## 🔨Production Build
+Inside of your Astro project, you'll see the following folders and files:
 
-After finishing all the customization, you can create a production build by running this command.
-
+```text
+.
+├── .vscode/
+├── public/
+├── scripts/
+├── src/
+│ ├── assets/
+│ ├── config/
+│ ├── content/
+│ ├── i18n/
+│ ├── layouts/
+│ ├── lib/
+│ ├── pages/
+│ ├── styles/
+│ ├── types/
+│ ├── content.config.ts
+│ └── env.d.ts
+├── .editorconfig
+├── .gitignore
+├── .markdownlint.json
+├── .prettierrc
+├── astro.config.mjs
+├── netlify.toml
+├── vercel.json
+├── vercel.sh
+└── tsconfig.json
 ```
-npm run build
-```
 
-<!-- edit with sitepins -->
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## 📝 Edit Content with CMS
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-This template comes pre-configured with [**Sitepins**](https://sitepins.com/?aff=tfgithub), a Git-based Headless CMS designed for seamless content management. You can update your website’s text, images, and configuration without touching a single line of code.
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollectionCTM()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-**How to get started:**
+Any static assets, like images, can be placed in the `public/` directory.
 
-Click the Edit with Sitepins button below and follow the on-screen instructions to start editing your content visually.
+## 🧞 Commands
 
-  <a target="_blank" href="https://app.sitepins.com/new/clone?name=Bigspring%20Light%20Astro&repository=https://github.com/themefisher/bigspring-light-astro/?aff=tfgithub">
-    <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
-  </a>
+All commands are run from the root of the project, from a terminal:
 
-<!-- reporting issue -->
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 🐞Reporting Issues
+## 🚀 One-Click Deployment
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/themefisher/bigspring-light-astro/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/bigspring-light-astro/issues).
+Deploy the Lumio Lite theme instantly to your favorite platform:
 
-<!-- licence -->
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/getastrothemes/lumio-lite-astro)
 
-## 📄License
+## 👀 Want to learn more?
 
-Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+Full usage, customization, and deployment guide:
 
-👉**Code License:** Released under the [MIT](https://github.com/themefisher/bigspring-light-astro/blob/main/LICENSE) license.
+[Theme Documentation](https://docs.getastrothemes.com/lumio/) · [Astro Documentation](https://docs.astro.build) · [Astro Discord server](https://astro.build/chat)
 
-👉**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+## 📄 License
 
-## 👨‍💻Need Custom Development Services?
+Lumio Lite is free for personal and commercial use under the [Getastrothemes Free Theme License.](LICENSE.md)
 
-Besides developing beautifully designed and blazing-fast themes, we help businesses create fast, performance-focused, scalable & secure websites based on NextJs, Hugo, Astro, etc.
+✅ Attribution appreciated but not required. You may optionally include a visible link to [getastrothemes.com](https://getastrothemes.com) in your site footer or credits section.
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://themefisher.com/contact).
+## 💬 Feedback & Suggestions
+
+If you enjoy using Lumio Lite or have ideas to improve it:
+
+📣 [Give Feedback](https://getastrothemes.com/contact/)
+
+## 🛠 Credits
+
+Made with ❤️ by [Getastrothemes](https://getastrothemes.com/)
+
+Lumio Lite is inspired by the premium [Lumio Pro Theme](https://getastrothemes.com/astro-themes/lumio/)

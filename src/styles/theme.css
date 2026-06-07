@@ -1,0 +1,57 @@
+/* prettier-ignore */
+@theme inline {
+  /* Configure font families in `src/config/fonts.json` */
+  --leading-body: 1.8;
+  --leading-inherit: inherit;
+
+  /* Colors */
+  --color-primary: #2563ff;
+  --color-secondary: #9ECF59;
+  --color-accent: #6366F1;
+  --color-body: #fff; /* Background color */
+  --color-theme-light: #f5f3ef; /* light surface/card section */
+  --color-theme-dark: #141414; /* dark surface/card section */
+  --color-text-default: #222222; /* default text on light backgrounds */
+  --color-text-inverse: #FFFFFF; /* default text on dark backgrounds */
+  --color-border-light: #ECEEF1; /* light border */
+  --color-border-dark: #222222; /* dark border */
+
+  --color-dark: #3B3B3B; /* heading/dark UI color if needed */
+  --color-light: #fff6f6; /* light UI color if needed */
+
+  /* Screen */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 540px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1320px;
+
+  /* Typography */
+  --text-base: 1rem;
+  --text-base-scale: 1.23;
+  --text-base-sm: calc(var(--text-base) * 0.9);
+
+  --text-h1: calc(var(--text-base) * pow(var(--text-base-scale), 6)); /* ~55.43px */
+  --text-h2: calc(var(--text-base) * pow(var(--text-base-scale), 5)); /* ~45.06px */
+  --text-h3: calc(var(--text-base) * pow(var(--text-base-scale), 4)); /* ~36.63px */
+  --text-h4: calc(var(--text-base) * pow(var(--text-base-scale), 3)); /* ~29.77px */
+  --text-h5: calc(var(--text-base) * pow(var(--text-base-scale), 2)); /* ~24.21px */
+  --text-h6: calc(var(--text-base) * pow(var(--text-base-scale), 1)); /* ~19.68px */
+
+  --text-h1-sm: calc(var(--text-h1) * 0.9); /* ~49.89px */
+  --text-h2-sm: calc(var(--text-h2) * 0.9); /* ~40.55px */
+  --text-h3-sm: calc(var(--text-h3) * 0.9); /* ~32.97px */
+  --text-h4-sm: calc(var(--text-h4) * 0.9); /* ~26.79px */
+  --text-h5-sm: calc(var(--text-h5) * 0.9); /* ~21.79px */
+  --text-h6-sm: calc(var(--text-h6) * 0.9); /* ~17.71px */
+
+  --text-display-1: calc(var(--text-base) * pow(var(--text-base-scale), 10.81)); /* ~150px */
+  --text-display-2: calc(var(--text-base) * pow(var(--text-base-scale), 9.53));  /* ~115px */
+  --text-display-3: calc(var(--text-base) * pow(var(--text-base-scale), 8.85));  /* ~100px */
+  --text-display-4: calc(var(--text-base) * pow(var(--text-base-scale), 7.77));  /* ~80px  */
+  --text-display-5: calc(var(--text-base) * pow(var(--text-base-scale), 5.69));  /* ~52px  */
+  --text-display-6: calc(var(--text-base) * pow(var(--text-base-scale), 4.66));  /* ~42px  */
+
+  /* Custom Shadow */
+  --shadow-button: inset 0px 0px 8px 4px rgba(255,255,255,0.48);
+}

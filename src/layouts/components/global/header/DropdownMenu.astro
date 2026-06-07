@@ -1,0 +1,117 @@
+---
+import Icons from "@/helpers/Icons.astro";
+import type { NavigationLink } from "@/types";
+import { getLocaleUrlCTM } from "@/lib/utils/i18nUtils";
+import { isActiveMenu, isActiveUrl } from "@/lib/utils/navigationActive";
+
+const { pathname, hostname } = Astro.url;
+const { recursive } = Astro.props;
+const menu = Astro.props.menu as NavigationLink;
+const enabledChildren = menu.children?.filter((child) => child.enable !== false);
+---
+
+<li
+  class:list={[
+    "hs-dropdown nav-dropdown group [--auto-close:inside] [--offset:0px]",
+    recursive ? "nav-dropdown-item [--placement:right-start]" : "nav-item",
+    menu.hasMegaMenu
+      ? "max-lg:relative lg:static!"
+      : menu.hasChildren
+        ? "relative"
+        : "",
+    menu.hasMegaMenu
+      ? "lg:[--strategy:static]"
+      : menu.hasChildren
+        ? "lg:[--strategy:absolute]"
+        : "",
+  ]}
+  role="menuitem">
+  <span
+    class:list={[
+      "nav-dropdown-toggle hs-dropdown-toggle flex items-center",
+      {
+        active:
+          isActiveMenu(menu, pathname, Astro.currentLocale, hostname) &&
+          !menu.hasChildren,
+      },
+      recursive
+        ? "nav-dropdown-link justify-between"
+        : "nav-link max-lg:flex! max-lg:justify-between",
+    ]}>
+    {menu.name}
+    <Icons
+      icon="ChevronDown"
+      class="hs-dropdown-open:rotate-180 ms-2 size-4 transition-transform duration-300"
+    />
+  </span>
+  {
+    !menu.hasMegaMenu && menu.hasChildren && enabledChildren?.length && (
+      <ul
+        class="nav-dropdown-list hs-dropdown-menu hs-dropdown-open:pointer-events-auto hs-dropdown-open:opacity-100 pointer-events-none absolute top-0 mt-2 hidden opacity-0 transition-[opacity,margin] max-lg:m-0! max-lg:transform-none! lg:block"
+        {...(recursive ? { "aria-orientation": "vertical" } : {})}>
+        {enabledChildren.map((child) =>
+          child.hasChildren ? (
+            child.hasChildren && <Astro.self recursive menu={child} />
+          ) : (
+            <li class="nav-dropdown-item" role="menuitem">
+              <a
+                href={getLocaleUrlCTM(
+                  child.url || Astro.url.origin,
+                  Astro.currentLocale,
+                )}
+                {...{
+                  // Set `rel` attribute for external links or use provided value
+                  rel: child.url?.startsWith("http")
+                    ? child.rel || "noopener noreferrer"
+                    : child.rel || undefined,
+
+                  // Set `target` to "_blank" for external links unless otherwise specified
+                  target: child.url?.startsWith("http")
+                    ? child.target || "_blank"
+                    : child.target || undefined,
+                }}
+                class:list={[
+                  "nav-dropdown-link block",
+                  {
+                    active: isActiveUrl(
+                      child.url,
+                      pathname,
+                      Astro.currentLocale,
+                      hostname,
+                    ),
+                  },
+                ]}>
+                {child.badge && child.badge.enable ? (
+                  child.badge.type === "dot" ? (
+                    <span class="relative inline-block">
+                      {child.name}
+                      <sup
+                        class:list={[
+                          "badge badge-dot",
+                          child.badge.color && `badge-${child.badge.color}`,
+                        ]}
+                      />
+                    </span>
+                  ) : (
+                    <>
+                      {child.name}
+                      <span
+                        class:list={[
+                          "badge",
+                          child.badge.color && `badge-${child.badge.color}`,
+                        ]}>
+                        {child.badge.label}
+                      </span>
+                    </>
+                  )
+                ) : (
+                  child.name
+                )}
+              </a>
+            </li>
+          ),
+        )}
+      </ul>
+    )
+  }
+</li>

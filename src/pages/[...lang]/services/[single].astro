@@ -1,0 +1,65 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import config from ".astro/config.generated.json";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { getEntryRouteParam, supportedLanguages } from "@/lib/utils/i18nUtils";
+import { render } from "astro:content";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    supportedLanguages.map(async (lang) => {
+      const { defaultLanguage, showDefaultLangInUrl } =
+        config.settings.multilingual;
+
+      const serviceIndex = await getEntryCTM(
+        "services",
+        "-index",
+        lang.languageCode,
+      );
+
+      let services = await getCollectionCTM("services", lang.languageCode);
+
+      if (serviceIndex?.data.draft && import.meta.env.PROD) {
+        return [];
+      }
+
+      return services.map((service) => ({
+        params: {
+          lang:
+            lang.languageCode === defaultLanguage && !showDefaultLangInUrl
+              ? undefined
+              : lang.languageCode,
+          single: getEntryRouteParam(service),
+        },
+        props: {
+          service,
+          serviceIndex,
+        },
+      }));
+    }),
+  );
+
+  return paths.flat();
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+
+<Base {...service.data}>
+  <PageHeader title={service.data.title} breadcrumbTitle={service.data.title} />
+
+  <section>
+    <div class="relative container">
+      <div class="prose-styles content has-video-modal">
+        <Content components={{ img: OptimizedImage }} />
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+</Base>

@@ -1,33 +1,99 @@
 ---
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { slugify } from "@/lib/utils/textConverter";
-
-// get taxonomy from frontmatter
-export const getTaxonomy = async (collection: any, name: string) => {
-  const singlePages = await getSinglePage(collection);
-  const taxonomyPages = singlePages.map((page: any) => page.data[name]);
-  let taxonomies: string[] = [];
-  for (let i = 0; i < taxonomyPages.length; i++) {
-    const categoryArray = taxonomyPages[i];
-    for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
-    }
-  }
-  const taxonomy = [...new Set(taxonomies)];
-  return taxonomy;
-};
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import { slugifyyy } from "@/lib/utils/textConverter";
+import config from ".astro/config.generated.json";
+import { getLocaleUrlCTM } from "./utils/i18nUtils";
 
 // get all taxonomies from frontmatter
-export const getAllTaxonomy = async (collection: any, name: string) => {
-  const singlePages = await getSinglePage(collection);
-  const taxonomyPages = singlePages.map((page: any) => page.data[name]);
-  let taxonomies: string[] = [];
-  for (let i = 0; i < taxonomyPages.length; i++) {
-    const categoryArray = taxonomyPages[i];
-    for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
+export const getTaxonomy = async (
+  collection: any,
+  name: string,
+  lang: string | undefined = config.settings.multilingual.defaultLanguage,
+) => {
+  const { defaultLanguage } = config.settings.multilingual;
+  const singlePages = await getCollectionCTM(collection, lang);
+  const defaultPages =
+    lang && lang !== defaultLanguage
+      ? await getCollectionCTM(collection, defaultLanguage)
+      : [];
+  const defaultPagesById = new Map(
+    defaultPages.map((page: any) => [
+      page.id.split("/").slice(1).join("/"),
+      page,
+    ]),
+  );
+
+  const uniqueTaxonomies = new Map<
+    string,
+    { name: string; slug: string; aliases: Set<string> }
+  >();
+
+  singlePages.forEach((page: any) => {
+    let taxonomyPages = page.data[name] || [];
+    if (import.meta.env.PROD) {
+      taxonomyPages =
+        !page.data.draft && !page.data.excludeFromSitemap
+          ? page.data[name] || []
+          : [];
     }
-  }
-  return taxonomies;
+
+    taxonomyPages = [...taxonomyPages];
+    const defaultPage = defaultPagesById.get(page.id.split("/").slice(1).join("/"));
+    const defaultTaxonomyPages = [...(defaultPage?.data?.[name] || [])];
+
+    taxonomyPages.forEach((category: string, categoryIndex: number) => {
+      if (category) {
+        const slug = slugifyyy(category);
+        if (!slug) return;
+
+        const existing = uniqueTaxonomies.get(category) || {
+          name: category,
+          slug,
+          aliases: new Set<string>(),
+        };
+
+        const matchingDefaultCategory = defaultTaxonomyPages[categoryIndex];
+        const defaultSlug = matchingDefaultCategory
+          ? slugifyyy(matchingDefaultCategory)
+          : "";
+
+        if (
+          defaultSlug &&
+          defaultSlug !== slug &&
+          lang &&
+          lang !== defaultLanguage
+        ) {
+          existing.aliases.add(defaultSlug);
+        }
+
+        uniqueTaxonomies.set(category, existing);
+      }
+    });
+  });
+
+  return Array.from(uniqueTaxonomies.values()).map((item) => ({
+    name: item.name,
+    slug: item.slug,
+    aliases: Array.from(item.aliases),
+  }));
+};
+
+export const generateCategorySlugs = (
+  categories: string[],
+  lang: string,
+  blogFolder: string,
+) => {
+  return categories.map((category) => {
+    const slug = getLocaleUrlCTM(
+      slugifyyy(category),
+      lang,
+      `/${blogFolder}/category`,
+    );
+
+    return {
+      name: category,
+      slug: slug,
+    };
+  });
 };
 ---

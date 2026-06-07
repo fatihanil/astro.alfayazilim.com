@@ -1,0 +1,96 @@
+{
+  "common": {
+    "readMore": "Detayları Oku",
+    "category": "Kategori",
+    "emailPlaceholder": "Email Adresi",
+    "emailLabel": "Email",
+    "subscribeSuccess": "Başarıyla abone olundu!",
+    "subscribeFail": "Abone olma başarısız oldu.",
+    "subscribeError": "Beklenmeyen bir hata oluştu.",
+    "bannerPattern": "Manşet deseni",
+    "customerAvatar": "Özel müşteri avatarı",
+    "decorativePattern": "Dekoratif desen",
+    "experience": "Deneyim",
+    "aboutUs": "Hakkımızda",
+    "experienceBadge": "Deneyim rozeti",
+    "paginationNext": "Sonraki",
+    "paginationPrevious": "Önceki",
+    "contactDropdownSearch404": "Herhangi bir sonuç bulamadık",
+    "404Heading": "404 - Sayfa Bulunamadı",
+    "404Description": "Hay aksi, görünüşe göre yolunu kaybetmişsin.",
+    "404ButtonLabel": "Ana Sayfaya Dön",
+    "send": "Send",
+    "share": "Share",
+    "projectDetails": "Project Details"
+  },
+  "navigation": {
+    "buttonLabel": "Get Started"
+  },
+  "contactInfo": {
+    "locationLabel": "Location",
+    "phoneLabel": "Phone Number",
+    "emailLabel": "Email"
+  },
+  "subscription": {
+    "title": "",
+    "description": ""
+  },
+  "integration": {
+    "relatedIntegrationSectionTitle": "You might be **interested in**",
+    "backToIntegration": "Browse"
+  },
+  "footerBlock": {
+    "description": "Duis aute irure dolor in reprehenderit velit esse cillum dolore in fugiat nulla pariatur, excepteur sint",
+    "copyright": "Copyright © 2024 Lumio All Rights Reserved.",
+    "contactBlockLabel": "Contact",
+    "aboutUsLabel": "About us",
+    "quickLinksLabel": "Quick Links",
+    "officeLabel": "Office",
+    "socialLabel": "Social",
+    "recentPostsLabel": "Recent Posts"
+  },
+  "blog": {
+    "comments": "Comments",
+    "noComments": "No Comments",
+    "previousPost": "Previous Post",
+    "nextPost": "Next Post"
+  },
+  "button": {
+    "readMore": "Read More",
+    "viewProjects": "View Projects",
+    "view": "View",
+    "getAQuote": "Get A Quote",
+    "discoverMore": "Discover More",
+    "findOutMore": "Find out more",
+    "showAll": "Show All"
+  },
+  "header": {
+    "announcement": "Announcing our expanded Trusted Partner Program. [find our more](/)"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "linkedin": "Linkedin"
+  },
+  "widgets": {
+    "postSearchTitle": "Search",
+    "postSearchFormPlaceholder": "Search",
+    "categoriesTitle": "Categories",
+    "recentPostsTitle": "Recent Posts"
+  },
+  "aria": {
+    "toggleNav": "Toggle navigation",
+    "backToTop": "Back to top",
+    "closeModal": "Close",
+    "playVideo": "Play video",
+    "search": "Search",
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "prevTestimonial": "Previous testimonial",
+    "nextTestimonial": "Next testimonial",
+    "languageMenu": "Language menu",
+    "pagination": "Pagination",
+    "socialLinks": "Social links",
+    "aboutCompany": "About company"
+  }
+}

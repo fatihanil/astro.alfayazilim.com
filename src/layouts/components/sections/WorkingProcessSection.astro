@@ -1,0 +1,111 @@
+---
+import type { z } from "astro/zod";
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects";
+import type { workingProcessSectionSchema } from "@/sections.schema";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import SectionBadge from "../global/SectionBadge.astro";
+import SectionTitle from "../global/SectionTitle.astro";
+
+type SectionType = Section &
+  NonNullable<z.infer<typeof workingProcessSectionSchema>>;
+type Props = {
+  content?: SectionType;
+};
+
+let defaultContent = (
+  await getEntryCTM("sections", "working-process", Astro.currentLocale)
+)?.data as SectionType;
+
+let actualContent = overrideObjects(
+  { ...defaultContent },
+  Astro.props.content,
+) as SectionType;
+
+const { enable = true, badge, title, image, list } = actualContent;
+
+if (!enable) return;
+---
+
+<section class="overflow-hidden relative pt-0">
+  <div
+    class="container grid grid-cols-1 place-items-stretch lg:grid-cols-2 lg:gap-16 xl:gap-32">
+    <div>
+      {
+        image && (
+          <OptimizedImage
+            src={image}
+            alt={title}
+            width={870}
+            height={900}
+            class="h-100 lg:h-full w-full overflow-hidden object-cover md:h-150 lg:absolute lg:right-[calc(50%+2rem)] lg:max-w-1/2 xl:right-[calc(50%+4rem)]"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          />
+        )
+      }
+    </div>
+
+    <div
+      class="section-spacing-vertical flex flex-col justify-center gap-6 lg:order-2 lg:col-start-2 lg:gap-12 xl:gap-17">
+      {/* Header content */}
+      <div>
+        {badge && <SectionBadge title={badge} />}
+        {title && <SectionTitle title={title} />}
+      </div>
+
+      {/* Process list */}
+      {
+        list && list.length > 0 && (
+          <div class="relative flex flex-col gap-8 xl:gap-14">
+            {list.map((item, i) => (
+              <div
+                class="relative flex items-center [clip-path:unset]!"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+                data-aos-duration="600">
+                {/* Timeline dotted line connector (hide on last item) */}
+                {i !== list.length - 1 && (
+                  <div class="border-primary absolute top-[75%] left-7 -ml-px h-full w-0 border-l-2 border-dashed md:left-7.25 lg:top-25 lg:left-[47.5px]" />
+                )}
+
+                {/* Icon Node */}
+                <div class="relative z-10 pe-5 md:pe-10">
+                  <div
+                    class:list={[
+                      "flex size-14 items-center justify-center rounded-full p-4 text-white lg:size-25",
+                      i === 0 ? "bg-primary" : "bg-theme-dark",
+                    ]}>
+                    {item.icon && (
+                      <OptimizedImage
+                        src={item.icon}
+                        alt={item.title}
+                        width={56}
+                        height={56}
+                        class="size-10"
+                        inlineSvg={true}
+                      />
+                    )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 class="text-h4-sm lg:text-h4 mb-3 font-semibold lg:mb-4.5">
+                    {item.title}
+                  </h3>
+                  <p
+                    class="text-text-default/70 text-sm md:text-base lg:max-w-md xl:leading-7"
+                    set:html={markdownify(item.description)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

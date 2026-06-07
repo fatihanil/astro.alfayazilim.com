@@ -8,18 +8,25 @@ export const sortByDate = (array: any[]) => {
   return sortedArray;
 };
 
-// sort product by weight
-export const sortByWeight = (array: any[]) => {
-  const withWeight = array.filter(
-    (item: { data: { weight: any } }) => item.data.weight,
-  );
-  const withoutWeight = array.filter(
-    (item: { data: { weight: any } }) => !item.data.weight,
-  );
-  const sortedWeightedArray = withWeight.sort(
-    (a: { data: { weight: number } }, b: { data: { weight: number } }) =>
-      a.data.weight - b.data.weight,
-  );
-  const sortedArray = [...new Set([...sortedWeightedArray, ...withoutWeight])];
-  return sortedArray;
+// sort data by weight
+type WeightedItem = {
+  weight?: number | null;
+  children?: WeightedItem[];
+  menus?: WeightedItem[];
+  [key: string]: any;
 };
+
+export function sortByWeight(array: WeightedItem[]): WeightedItem[] {
+  return array
+    .slice() // Create a shallow copy to avoid mutating the original array
+    .sort((a, b) => {
+      const aWeight = a.weight ?? Infinity; // If weight is null/undefined, treat as Infinity
+      const bWeight = b.weight ?? Infinity;
+      return aWeight - bWeight;
+    })
+    .map((item) => ({
+      ...item,
+      ...(item.children ? { children: sortByWeight(item.children) } : {}),
+      ...(item.menus ? { menus: sortByWeight(item.menus) } : {}),
+    }));
+}

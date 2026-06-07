@@ -1,0 +1,261 @@
+{
+  "main": [
+    {
+      "enable": true,
+      "name": "Home",
+      "weight": 0,
+      "url": "/"
+    },
+    {
+      "enable": true,
+      "name": "Mega Menu",
+      "weight": 1,
+      "hasChildren": true,
+      "children": [
+        {
+          "enable": true,
+          "name": "Mega Menu is only available in the Pro version",
+          "url": "https://lumio-astro.netlify.app"
+        }
+      ]
+    },
+    {
+      "name": "Pages",
+      "enable": true,
+      "weight": 2,
+      "hasChildren": true,
+      "children": [
+        {
+          "enable": true,
+          "name": "Home",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Home 01",
+              "url": "https://lumio-astro.netlify.app/",
+              "weight": 1
+            },
+            {
+              "enable": true,
+              "name": "Home 02",
+              "url": "/",
+              "weight": 2
+            },
+            {
+              "enable": true,
+              "name": "Home 03",
+              "url": "https://lumio-astro.netlify.app/home-three/",
+              "weight": 3
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Projects",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Project",
+              "url": "https://lumio-astro.netlify.app/case-studies/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Project Single",
+              "url": "https://lumio-astro.netlify.app/case-studies/custom-slug-case-studies-1/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Blog",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Blog",
+              "url": "https://lumio-astro.netlify.app/blog/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Blog Single",
+              "url": "https://lumio-astro.netlify.app/blog/custom-slug-post-1/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Services",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Services",
+              "url": "/services/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Services Single",
+              "url": "/services/web-development/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "About",
+          "url": "https://lumio-astro.netlify.app/about/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Team Member",
+          "url": "https://lumio-astro.netlify.app/team",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Pricing Plan",
+          "url": "https://lumio-astro.netlify.app/pricing/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "FAQ",
+          "url": "https://lumio-astro.netlify.app/faq/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "404",
+          "url": "/404/",
+          "weight": 0,
+          "badge": {
+            "enable": true,
+            "label": "Badge",
+            "color": "accent",
+            "_color_comment": "color expected value - accent, info, success, danger, dark",
+            "type": "text",
+            "_type_comment": "type expected value - text, dot"
+          }
+        }
+      ]
+    },
+    {
+      "enable": true,
+      "name": "Components",
+      "weight": 3,
+      "url": "https://lumio-astro.netlify.app/components/",
+      "badge": {
+        "enable": true,
+        "label": "New",
+        "color": "accent",
+        "_color_comment": "color expected value - accent, info, success, danger, dark",
+        "type": "text",
+        "_type_comment": "type expected value - text, dot"
+      }
+    }
+  ],
+  "topbar": [
+    {
+      "enable": true,
+      "name": "Help",
+      "url": "/",
+      "weight": 0
+    },
+    {
+      "enable": true,
+      "name": "Support",
+      "url": "/",
+      "weight": 0
+    },
+    {
+      "enable": true,
+      "name": "Contact",
+      "url": "/",
+      "weight": 0
+    }
+  ],
+  "footer": [
+    {
+      "label": "Links",
+      "list": [
+        {
+          "enable": true,
+          "name": "Home",
+          "url": "/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "About Us",
+          "url": "/about/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Services",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Case Studies",
+          "url": "/case-studies/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Contact",
+          "url": "/contact/",
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "label": "Services",
+      "list": [
+        {
+          "enable": true,
+          "name": "App Development",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Database Security",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Cyber Security",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Digital Marketing",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Graphic Designing",
+          "url": "/services/",
+          "weight": 0
+        }
+      ]
+    }
+  ]
+}

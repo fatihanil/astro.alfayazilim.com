@@ -1,0 +1,96 @@
+{
+  "common": {
+    "readMore": "Lire plus",
+    "category": "Categorie",
+    "emailPlaceholder": "Adresse e-mail",
+    "emailLabel": "E-mail",
+    "subscribeSuccess": "Abonnement reussi !",
+    "subscribeFail": "Echec de l'abonnement.",
+    "subscribeError": "Une erreur inattendue s'est produite.",
+    "bannerPattern": "Motif de banniere",
+    "customerAvatar": "Avatar client",
+    "decorativePattern": "Motif decoratif",
+    "experience": "Experience",
+    "aboutUs": "A propos de nous",
+    "experienceBadge": "Badge d'experience",
+    "paginationNext": "Suivant",
+    "paginationPrevious": "Precedent",
+    "contactDropdownSearch404": "Aucun resultat trouve",
+    "404Heading": "404 - Page introuvable",
+    "404Description": "Oups, il semble que vous ayez quitte la carte.",
+    "404ButtonLabel": "Retour a l'accueil",
+    "send": "Envoyer",
+    "share": "Partager",
+    "projectDetails": "Details du projet"
+  },
+  "navigation": {
+    "buttonLabel": "Commencer"
+  },
+  "contactInfo": {
+    "locationLabel": "Adresse",
+    "phoneLabel": "Numero de telephone",
+    "emailLabel": "E-mail"
+  },
+  "subscription": {
+    "title": "",
+    "description": ""
+  },
+  "integration": {
+    "relatedIntegrationSectionTitle": "Vous pourriez etre **interesse par**",
+    "backToIntegration": "Parcourir"
+  },
+  "footerBlock": {
+    "description": "Lumio accompagne les entreprises avec des solutions IT fiables, evolutives et pensees pour une croissance durable.",
+    "copyright": "Copyright © 2024 Lumio Tous droits reserves.",
+    "contactBlockLabel": "Contact",
+    "aboutUsLabel": "A propos de nous",
+    "quickLinksLabel": "Liens rapides",
+    "officeLabel": "Bureau",
+    "socialLabel": "Reseaux",
+    "recentPostsLabel": "Articles recents"
+  },
+  "blog": {
+    "comments": "Commentaires",
+    "noComments": "Aucun commentaire",
+    "previousPost": "Article precedent",
+    "nextPost": "Article suivant"
+  },
+  "button": {
+    "readMore": "Lire plus",
+    "viewProjects": "Voir les projets",
+    "view": "Voir",
+    "getAQuote": "Obtenir un devis",
+    "discoverMore": "Decouvrir davantage",
+    "findOutMore": "En savoir plus",
+    "showAll": "Tout afficher"
+  },
+  "header": {
+    "announcement": "Decouvrez notre programme elargi de partenaires de confiance. [En savoir plus](/)"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "widgets": {
+    "postSearchTitle": "Recherche",
+    "postSearchFormPlaceholder": "Rechercher",
+    "categoriesTitle": "Categories",
+    "recentPostsTitle": "Articles recents"
+  },
+  "aria": {
+    "toggleNav": "Ouvrir ou fermer la navigation",
+    "backToTop": "Retour en haut",
+    "closeModal": "Fermer",
+    "playVideo": "Lire la video",
+    "search": "Rechercher",
+    "prevSlide": "Diapositive precedente",
+    "nextSlide": "Diapositive suivante",
+    "prevTestimonial": "Temoignage precedent",
+    "nextTestimonial": "Temoignage suivant",
+    "languageMenu": "Menu des langues",
+    "pagination": "Pagination",
+    "socialLinks": "Liens sociaux",
+    "aboutCompany": "A propos de l'entreprise"
+  }
+}

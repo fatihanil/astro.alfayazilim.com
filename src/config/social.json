@@ -1,24 +1,60 @@
 {
   "main": [
     {
-      "name": "facebook",
-      "icon": "FaFacebook",
-      "link": "https://www.facebook.com/"
+      "enable": true,
+      "label": "Facebook",
+      "lucideIcon": "facebook",
+      "url": "https://www.facebook.com",
+      "isForShare": true,
+      "isForShareProject": true
     },
     {
-      "name": "x",
-      "icon": "FaXTwitter",
-      "link": "https://x.com/"
+      "enable": true,
+      "label": "Twitter",
+      "lucideIcon": "twitter-new",
+      "url": "https://www.x.com",
+      "isForShare": true,
+      "isForShareProject": true
     },
     {
-      "name": "github",
-      "icon": "FaGithub",
-      "link": "https://www.github.com/"
+      "enable": true,
+      "label": "Linkedin",
+      "lucideIcon": "linkedin",
+      "url": "https://www.linkedin.com",
+      "isForShare": false,
+      "isForShareProject": true
     },
     {
-      "name": "linkedin",
-      "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/"
+      "enable": true,
+      "label": "Instagram",
+      "lucideIcon": "instagram",
+      "url": "https://www.instagram.com",
+      "isForShare": false,
+      "isForShareProject": true
+    },
+    {
+      "enable": false,
+      "label": "Dribbble",
+      "lucideIcon": "dribbble",
+      "url": "https://www.dribbble.com",
+      "isForShare": false,
+      "isForShareProject": false
+    },
+    {
+      "enable": false,
+      "label": "Mail",
+      "lucideIcon": "mail",
+      "url": "",
+      "isForShare": true,
+      "isForShareProject": false
+    },
+    {
+      "enable": false,
+      "label": "Link",
+      "lucideIcon": "link",
+      "url": "",
+      "isForShare": true,
+      "isForShareProject": false
     }
   ]
 }

@@ -1,30 +1,81 @@
 ---
+import config from ".astro/config.generated.json";
+import languages from "@/config/language.json";
 import {
   getCollection,
   type CollectionEntry,
   type CollectionKey,
 } from "astro:content";
 
-type PageData = {
-  title: string;
-  meta_title?: string;
-  description?: string;
-  image?: string;
-  draft?: boolean;
-};
-
-export const getSinglePage = async <C extends CollectionKey>(
-  collectionName: C
+export const getCollectionCTM = async <C extends CollectionKey>(
+  collectionName: C,
+  lang: string | undefined,
 ): Promise<CollectionEntry<C>[]> => {
-  const allPages = await getCollection(collectionName);
+  const { defaultLanguage } = config.settings.multilingual;
 
-  const removeIndex = allPages.filter((data) => data.id.match(/^(?!-)/));
+  const selectedLanguageCode = lang || defaultLanguage;
 
-  const removeDrafts = removeIndex.filter((data) => {
-    const pageData = data.data as PageData;
-    return pageData.draft !== true;
+  const language = languages.find(
+    (l: any) => l.languageCode == selectedLanguageCode,
+  );
+
+  if (!language) {
+    throw new Error("Language not found");
+  }
+
+  const { contentDir } = language;
+
+  const pages: CollectionEntry<C>[] = (await getCollection(
+    collectionName as any,
+    (item: any) => {
+      return item.id.startsWith(contentDir) && !item.id.includes("-index");
+    },
+  )) as CollectionEntry<C>[];
+
+  // Prevent generation of pages with `draft: true` in production
+  let cleaned = import.meta.env.PROD
+    ? pages.filter((page) => !page.data.draft)
+    : pages;
+
+  // Sort by weight if present
+  cleaned = cleaned.sort((a, b) => {
+    const wa = a.data.weight ?? Infinity;
+    const wb = b.data.weight ?? Infinity;
+    return wa - wb;
   });
 
-  return removeDrafts;
+  return cleaned;
+};
+
+export const getEntryCTM = async <C extends CollectionKey>(
+  collectionName: C,
+  subCollectionName: string,
+  lang?: string, // Optional, defaults to undefined
+): Promise<CollectionEntry<C>> => {
+  const { defaultLanguage } = config.settings.multilingual;
+
+  const selectedLanguageCode = lang || defaultLanguage;
+
+  const language = languages.find(
+    (l) => l.languageCode === selectedLanguageCode,
+  );
+
+  if (!language) {
+    throw new Error(`Language '${selectedLanguageCode}' not found.`);
+  }
+
+  const contentDir = language.contentDir;
+  const path = subCollectionName
+    ? `${contentDir}/${subCollectionName}`
+    : contentDir;
+
+  const entries = await getCollection(collectionName, ({ id }) => {
+    // Remove extension like .md or .mdx
+    const extensionExcluded = id.replace(/\.mdx?$/, "");
+
+    return extensionExcluded === path;
+  });
+
+  return entries && (entries[0] as CollectionEntry<C>);
 };
 ---

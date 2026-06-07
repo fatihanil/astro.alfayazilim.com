@@ -1,0 +1,143 @@
+---
+import social from "@/config/social.json";
+import type { NavigationLink } from "@/types";
+import { markdownify } from "@/lib/utils/textConverter";
+import config from ".astro/config.generated.json";
+import { useTranslations, getLocaleUrlCTM } from "@/lib/utils/i18nUtils";
+import Button from "../Button.astro";
+import { filteredEnabled } from "@/lib/utils/filteredEnabled";
+
+const t = await useTranslations(Astro.currentLocale as string);
+let footerMenus = t("footer") as {
+  label: string;
+  list: NavigationLink[];
+  footerOuterSpace?: boolean;
+}[];
+
+let { copyright, footerDescription } = config.settings;
+
+footerDescription = footerDescription || t("footerBlock.description");
+const copyrightText = copyright.text;
+---
+
+<footer>
+  <div class="bg-theme-dark">
+    <div class="relative container flex flex-col">
+      <div
+        class="grid gap-12 py-15 md:grid-cols-6 md:py-20 lg:flex lg:justify-between xl:py-27">
+        <div class="space-y-4 md:col-span-3">
+          <h3
+            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
+            {t("footerBlock.aboutUsLabel")}
+          </h3>
+          {
+            footerDescription && (
+              <p
+                class="text-text-inverse/50 max-w-74.5"
+                set:html={markdownify(footerDescription)}
+              />
+            )
+          }
+        </div>
+
+        <div class="md:col-span-3">
+          <h3
+            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
+            {t("footerBlock.officeLabel")}
+          </h3>
+          <div class="text-text-inverse/50 flex flex-col gap-0 md:gap-4">
+            <p class="leading-relaxed lg:max-w-50">
+              {config.contact.location}
+            </p>
+            <div
+              class="hover:text-text-inverse! text-text-inverse/50! mt-4 transition-colors"
+              set:html={markdownify(config.contact.email)}
+            />
+            <div class="mt-4 text-2xl font-semibold">
+              <Button
+                tag="a"
+                variant="text"
+                url={getLocaleUrlCTM(
+                  `tel:${config.contact.phone?.replace(/\s/g, "")}`,
+                  Astro.currentLocale,
+                )}
+                label={config.contact.phone}
+                class="text-text-inverse hover:text-text-inverse"
+              />
+            </div>
+          </div>
+        </div>
+
+        {
+          footerMenus?.map((menu) => (
+            <div class="md:col-span-2">
+              {menu.label && (
+                <h3
+                  class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10"
+                  set:html={markdownify(menu.label)}
+                />
+              )}
+              <ul class="flex flex-col gap-3.5">
+                {menu.list?.map((item) => (
+                  <li>
+                    <Button
+                      tag="a"
+                      variant="text"
+                      url={getLocaleUrlCTM(
+                        item.url as string,
+                        Astro.currentLocale,
+                      )}
+                      label={item.name}
+                      class="text-text-inverse/50 hover:text-text-inverse transition-colors"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+
+        <div class="md:col-span-2">
+          <h3
+            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
+            {t("footerBlock.socialLabel")}
+          </h3>
+          <ul class="flex flex-col gap-3.5">
+            {
+              filteredEnabled(social.main).map((item: any) => (
+                <li>
+                  <Button
+                    tag="a"
+                    variant="text"
+                    url={getLocaleUrlCTM(
+                      item.url as string,
+                      Astro.currentLocale,
+                    )}
+                    aria-label={item.label}
+                    label={item.label}
+                    class="text-text-inverse/50 hover:text-text-inverse capitalize transition-colors"
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-border-dark flex flex-col items-center justify-center border-t py-7">
+        {
+          copyright.enable && (
+            <div
+              class="text-text-inverse/50 text-center"
+              set:html={markdownify(
+                t("footerBlock.copyright") || copyrightText,
+                true,
+              )}
+            />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</footer>
