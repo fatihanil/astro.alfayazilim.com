@@ -10,5 +10,11 @@
     "languageCode": "fr",
     "contentDir": "french",
     "weight": 2
+  },
+  {
+    "languageName": "Tr",
+    "languageCode": "tr",
+    "contentDir": "turkish",
+    "weight": 3
   }
 ]

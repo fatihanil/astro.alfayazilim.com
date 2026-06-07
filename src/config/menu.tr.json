@@ -1,0 +1,261 @@
+{
+  "main": [
+    {
+      "enable": true,
+      "name": "Ana Sayfa",
+      "weight": 0,
+      "url": "/"
+    },
+    {
+      "enable": true,
+      "name": "Mega Menü",
+      "weight": 1,
+      "hasChildren": true,
+      "children": [
+        {
+          "enable": true,
+          "name": "Mega Menü yalnızca Pro sürümde mevcuttur",
+          "url": "https://lumio-astro.netlify.app"
+        }
+      ]
+    },
+    {
+      "name": "Sayfalar",
+      "enable": true,
+      "weight": 2,
+      "hasChildren": true,
+      "children": [
+        {
+          "enable": true,
+          "name": "Ana Sayfa",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Ana Sayfa 01",
+              "url": "https://lumio-astro.netlify.app/",
+              "weight": 1
+            },
+            {
+              "enable": true,
+              "name": "Ana Sayfa 02",
+              "url": "/",
+              "weight": 2
+            },
+            {
+              "enable": true,
+              "name": "Ana Sayfa 03",
+              "url": "https://lumio-astro.netlify.app/home-three/",
+              "weight": 3
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Projeler",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Proje",
+              "url": "https://lumio-astro.netlify.app/case-studies/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Proje Detay",
+              "url": "https://lumio-astro.netlify.app/case-studies/custom-slug-case-studies-1/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Blog",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Blog",
+              "url": "https://lumio-astro.netlify.app/blog/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Blog Detay",
+              "url": "https://lumio-astro.netlify.app/blog/custom-slug-post-1/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Hizmetler",
+          "weight": 0,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "Hizmetler",
+              "url": "/services/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Hizmet Detay",
+              "url": "/services/web-development/",
+              "weight": 0
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "Hakkımızda",
+          "url": "https://lumio-astro.netlify.app/about/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Ekip Üyesi",
+          "url": "https://lumio-astro.netlify.app/team",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Fiyatlandırma",
+          "url": "https://lumio-astro.netlify.app/pricing/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "SSS",
+          "url": "https://lumio-astro.netlify.app/faq/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "404",
+          "url": "/404/",
+          "weight": 0,
+          "badge": {
+            "enable": true,
+            "label": "Rozet",
+            "color": "accent",
+            "_color_comment": "color expected value - accent, info, success, danger, dark",
+            "type": "text",
+            "_type_comment": "type expected value - text, dot"
+          }
+        }
+      ]
+    },
+    {
+      "enable": true,
+      "name": "Bileşenler",
+      "weight": 3,
+      "url": "https://lumio-astro.netlify.app/components/",
+      "badge": {
+        "enable": true,
+        "label": "Yeni",
+        "color": "accent",
+        "_color_comment": "color expected value - accent, info, success, danger, dark",
+        "type": "text",
+        "_type_comment": "type expected value - text, dot"
+      }
+    }
+  ],
+  "topbar": [
+    {
+      "enable": true,
+      "name": "Yardım",
+      "url": "/",
+      "weight": 0
+    },
+    {
+      "enable": true,
+      "name": "Destek",
+      "url": "/",
+      "weight": 0
+    },
+    {
+      "enable": true,
+      "name": "İletişim",
+      "url": "/",
+      "weight": 0
+    }
+  ],
+  "footer": [
+    {
+      "label": "Bağlantılar",
+      "list": [
+        {
+          "enable": true,
+          "name": "Ana Sayfa",
+          "url": "/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Hakkımızda",
+          "url": "/about/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Hizmetler",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Vaka Çalışmaları",
+          "url": "/case-studies/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "İletişim",
+          "url": "/contact/",
+          "weight": 0
+        }
+      ]
+    },
+    {
+      "label": "Hizmetler",
+      "list": [
+        {
+          "enable": true,
+          "name": "Uygulama Geliştirme",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Veritabanı Güvenliği",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Siber Güvenlik",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Dijital Pazarlama",
+          "url": "/services/",
+          "weight": 0
+        },
+        {
+          "enable": true,
+          "name": "Grafik Tasarım",
+          "url": "/services/",
+          "weight": 0
+        }
+      ]
+    }
+  ]
+}

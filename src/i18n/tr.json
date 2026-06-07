@@ -2,8 +2,8 @@
   "common": {
     "readMore": "Detayları Oku",
     "category": "Kategori",
-    "emailPlaceholder": "Email Adresi",
-    "emailLabel": "Email",
+    "emailPlaceholder": "E-posta Adresi",
+    "emailLabel": "E-posta",
     "subscribeSuccess": "Başarıyla abone olundu!",
     "subscribeFail": "Abone olma başarısız oldu.",
     "subscribeError": "Beklenmeyen bir hata oluştu.",
@@ -15,82 +15,82 @@
     "experienceBadge": "Deneyim rozeti",
     "paginationNext": "Sonraki",
     "paginationPrevious": "Önceki",
-    "contactDropdownSearch404": "Herhangi bir sonuç bulamadık",
+    "contactDropdownSearch404": "Herhangi bir sonuç bulunamadı",
     "404Heading": "404 - Sayfa Bulunamadı",
     "404Description": "Hay aksi, görünüşe göre yolunu kaybetmişsin.",
     "404ButtonLabel": "Ana Sayfaya Dön",
-    "send": "Send",
-    "share": "Share",
-    "projectDetails": "Project Details"
+    "send": "Gönder",
+    "share": "Paylaş",
+    "projectDetails": "Proje Detayları"
   },
   "navigation": {
-    "buttonLabel": "Get Started"
+    "buttonLabel": "Başlayın"
   },
   "contactInfo": {
-    "locationLabel": "Location",
-    "phoneLabel": "Phone Number",
-    "emailLabel": "Email"
+    "locationLabel": "Konum",
+    "phoneLabel": "Telefon Numarası",
+    "emailLabel": "E-posta"
   },
   "subscription": {
     "title": "",
     "description": ""
   },
   "integration": {
-    "relatedIntegrationSectionTitle": "You might be **interested in**",
-    "backToIntegration": "Browse"
+    "relatedIntegrationSectionTitle": "**İlginizi çekebilir**",
+    "backToIntegration": "Göz At"
   },
   "footerBlock": {
-    "description": "Duis aute irure dolor in reprehenderit velit esse cillum dolore in fugiat nulla pariatur, excepteur sint",
-    "copyright": "Copyright © 2024 Lumio All Rights Reserved.",
-    "contactBlockLabel": "Contact",
-    "aboutUsLabel": "About us",
-    "quickLinksLabel": "Quick Links",
-    "officeLabel": "Office",
-    "socialLabel": "Social",
-    "recentPostsLabel": "Recent Posts"
+    "description": "Müşterilerimize en iyi BT çözümlerini sunmaya adanmış, yenilikçi ve güvenilir bir teknoloji ortağıyız.",
+    "copyright": "Telif Hakkı © 2024 Lumio Tüm Hakları Saklıdır.",
+    "contactBlockLabel": "İletişim",
+    "aboutUsLabel": "Hakkımızda",
+    "quickLinksLabel": "Hızlı Bağlantılar",
+    "officeLabel": "Ofis",
+    "socialLabel": "Sosyal Medya",
+    "recentPostsLabel": "Son Yazılar"
   },
   "blog": {
-    "comments": "Comments",
-    "noComments": "No Comments",
-    "previousPost": "Previous Post",
-    "nextPost": "Next Post"
+    "comments": "Yorumlar",
+    "noComments": "Yorum Yok",
+    "previousPost": "Önceki Yazı",
+    "nextPost": "Sonraki Yazı"
   },
   "button": {
-    "readMore": "Read More",
-    "viewProjects": "View Projects",
-    "view": "View",
-    "getAQuote": "Get A Quote",
-    "discoverMore": "Discover More",
-    "findOutMore": "Find out more",
-    "showAll": "Show All"
+    "readMore": "Devamını Oku",
+    "viewProjects": "Projeleri Gör",
+    "view": "Görüntüle",
+    "getAQuote": "Teklif Al",
+    "discoverMore": "Daha Fazlasını Keşfet",
+    "findOutMore": "Daha Fazla Bilgi",
+    "showAll": "Tümünü Göster"
   },
   "header": {
-    "announcement": "Announcing our expanded Trusted Partner Program. [find our more](/)"
+    "announcement": "Genişletilmiş Güvenilir Ortak Programımızı duyuruyoruz. [daha fazla bilgi](/)"
   },
   "social": {
     "facebook": "Facebook",
     "twitter": "Twitter",
-    "linkedin": "Linkedin"
+    "linkedin": "LinkedIn"
   },
   "widgets": {
-    "postSearchTitle": "Search",
-    "postSearchFormPlaceholder": "Search",
-    "categoriesTitle": "Categories",
-    "recentPostsTitle": "Recent Posts"
+    "postSearchTitle": "Ara",
+    "postSearchFormPlaceholder": "Ara",
+    "categoriesTitle": "Kategoriler",
+    "recentPostsTitle": "Son Yazılar"
   },
   "aria": {
-    "toggleNav": "Toggle navigation",
-    "backToTop": "Back to top",
-    "closeModal": "Close",
-    "playVideo": "Play video",
-    "search": "Search",
-    "prevSlide": "Previous slide",
-    "nextSlide": "Next slide",
-    "prevTestimonial": "Previous testimonial",
-    "nextTestimonial": "Next testimonial",
-    "languageMenu": "Language menu",
-    "pagination": "Pagination",
-    "socialLinks": "Social links",
-    "aboutCompany": "About company"
+    "toggleNav": "Gezinmeyi aç/kapat",
+    "backToTop": "Başa dön",
+    "closeModal": "Kapat",
+    "playVideo": "Videoyu oynat",
+    "search": "Ara",
+    "prevSlide": "Önceki slayt",
+    "nextSlide": "Sonraki slayt",
+    "prevTestimonial": "Önceki referans",
+    "nextTestimonial": "Sonraki referans",
+    "languageMenu": "Dil menüsü",
+    "pagination": "Sayfalama",
+    "socialLinks": "Sosyal medya bağlantıları",
+    "aboutCompany": "Şirket hakkında"
   }
 }
