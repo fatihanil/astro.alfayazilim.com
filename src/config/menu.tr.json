@@ -21,7 +21,7 @@
         {
           "enable": true,
           "name": "İnsan Kaynakları",
-          "url" : "/insan-kaynaklari/"
+          "url" : "/insan-kaynaklari/",
           "weight": 1
         }
       ]
