@@ -22,7 +22,7 @@ let {
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.baseUrl ? config.site.baseUrl : "http://examplesite.com",
+  site: config.site.baseUrl ? config.site.baseUrl : "https://www.alfayazilim.com",
   trailingSlash: config.site.trailingSlash ? "always" : "never",
   devToolbar: {
     enabled: false,
