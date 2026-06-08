@@ -116,16 +116,9 @@ const messageContent = {
     messageInputs.find((input) => input.note === "deprecated")?.content || "",
 };
 
-const isFrench = Astro.currentLocale === "fr";
-const defaultPendingMessage = isFrench
-  ? "Envoi de votre message..."
-  : "Submitting your message...";
-const defaultSuccessMessage = messageContent.success || (isFrench
-  ? "Nous avons bien recu votre message. Nous vous repondrons des que possible."
-  : "We have received your message. We'll get back to you as soon as possible.");
-const defaultErrorMessage = messageContent.error || (isFrench
-  ? "Une erreur s'est produite. Veuillez reessayer."
-  : "Something went wrong. Please try again.");
+const defaultPendingMessage = "Submitting your message...";
+const defaultSuccessMessage = messageContent.success || "We have received your message. We'll get back to you as soon as possible.";
+const defaultErrorMessage = messageContent.error || "Something went wrong. Please try again.";
 ---
 
 <form

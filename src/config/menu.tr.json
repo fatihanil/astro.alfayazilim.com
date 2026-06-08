@@ -15,7 +15,7 @@
         {
           "enable": true,
           "name": "Hakkımızda",
-          "url": "https://alfayazilim.com/hakkimizda/",
+          "url": "/hakkimizda/",
           "weight": 0
         },
         {
@@ -97,49 +97,49 @@
             {
               "enable": true,
               "name": "SAP Çözümleri",
-              "url": "https://alfayazilim.com/urunler/sap-cozumleri",
+              "url": "/sap-cozumleri",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Alfa e-Fatura",
-              "url": "https://alfayazilim.com/urunler/alfa-e-fatura",
+              "url": "/urunler/alfa-e-fatura",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Alfa e-Defter",
-              "url": "https://alfayazilim.com/urunler/alfa-e-defter",
+              "url": "/urunler/alfa-e-defter",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Alfa e-Arşiv",
-              "url": "https://alfayazilim.com/urunler/alfa-e-arsiv",
+              "url": "/urunler/alfa-e-arsiv",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Alfa e-Mutabakat",
-              "url": "https://alfayazilim.com/urunler/alfa-e-mutabakat",
+              "url": "/urunler/alfa-e-mutabakat",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Alfa Organigram",
-              "url": "https://alfayazilim.com/urunler/organigram",
+              "url": "/urunler/organigram",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Mobil Çözümler",
-              "url": "https://alfayazilim.com/urunler/mobil-cozumler",
+              "url": "/urunler/mobil-cozumler",
               "weight": 0
             },
             {
               "enable": true,
               "name": "Yazılım Geliştirme",
-              "url": "https://alfayazilim.com/urunler/yazilim-gelistirme",
+              "url": "/urunler/yazilim-gelistirme",
               "weight": 0
             }
           ]
