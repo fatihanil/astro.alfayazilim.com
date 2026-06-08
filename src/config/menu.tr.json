@@ -21,6 +21,7 @@
         {
           "enable": true,
           "name": "İnsan Kaynakları",
+          "url" : "/insan-kaynaklari/"
           "weight": 1
         }
       ]
@@ -40,49 +41,49 @@
             {
               "enable": true,
               "name": "SAP IS-U Danışmanlığı",
-              "url": "",
+              "url": "/sap-isu-danismanliği",
               "weight": 1
             },
             {
               "enable": true,
               "name": "Sap Hybris",
-              "url": "/",
+              "url": "/sap-hybris",
               "weight": 2
             },
             {
               "enable": true,
               "name": "SAP CRM Danışmanlığı",
-              "url": "/",
+              "url": "/sap-crm-danismanligi",
               "weight": 3
             },
             {
               "enable": true,
               "name": "İş Zekası ve Analitiği",
-              "url": "/",
+              "url": "/is-zekasi-ve-analitigi",
               "weight": 4
             },
             {
               "enable": true,
               "name": "HANA & S/4 HANA",
-              "url": "/",
+              "url": "/hana-s4hana-danismanligi",
               "weight": 5
             },
             {
               "enable": true,
               "name": "SAP ERP danışmanlığı",
-              "url": "/",
+              "url": "/sap-erp-danismanligi",
               "weight": 6
             },
             {
               "enable": true,
-              "name": "SAP teknolojik danışmanlık",
-              "url": "/",
+              "name": "SAP teknolojileri danışmanlığı",
+              "url": "/sap-teknolojisi-danismanligi",
               "weight": 7
             },            
             {
               "enable": true,
               "name": "Doküman yönetimi ve arşivleme",
-              "url": "/",
+              "url": "/dokuman-yonetim-ve-arsivleme",
               "weight": 8
             }
           ]
