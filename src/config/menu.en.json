@@ -8,154 +8,159 @@
     },
     {
       "enable": true,
-      "name": "Mega Menu",
+      "name": "Corporate",
       "weight": 1,
       "hasChildren": true,
       "children": [
         {
           "enable": true,
-          "name": "Mega Menu is only available in the Pro version",
-          "url": "https://lumio-astro.netlify.app"
+          "name": "About Us",
+          "url": "/about-us"
+        },
+        {
+          "enable": true,
+          "name": "Careers",
+          "url": "/careers/"
         }
       ]
     },
     {
-      "name": "Pages",
+      "name": "Services",
       "enable": true,
       "weight": 2,
       "hasChildren": true,
       "children": [
         {
           "enable": true,
-          "name": "Home",
+          "name": "Consulting",
           "weight": 0,
           "hasChildren": true,
           "children": [
             {
               "enable": true,
-              "name": "Home 01",
-              "url": "https://lumio-astro.netlify.app/",
+              "name": "SAP IS-U Consulting",
+              "url": "/sap-isu-consulting/",
               "weight": 1
             },
             {
               "enable": true,
-              "name": "Home 02",
-              "url": "/",
+              "name": "SAP Hybris",
+              "url": "/sap-hybris/",
               "weight": 2
             },
             {
               "enable": true,
-              "name": "Home 03",
-              "url": "https://lumio-astro.netlify.app/home-three/",
+              "name": "SAP CRM Consulting",
+              "url": "/sap-crm-consulting/",
+              "weight": 3
+            },
+            {
+              "enable": true,
+              "name": "Business Intelligence Consulting",
+              "url": "/business-intelligence-consulting/",
+              "weight": 3
+            },
+            {
+              "enable": true,
+              "name": "HANA & S/4 HANA",
+              "url": "/hana-s4hana-consulting/",
+              "weight": 3
+            },
+            {
+              "enable": true,
+              "name": "SAP ERP Consulting",
+              "url": "/sap-erp-consulting/",
+              "weight": 3
+            },
+            {
+              "enable": true,
+              "name": "Document Management Consulting",
+              "url": "/document-management-consulting/",
               "weight": 3
             }
           ]
         },
         {
           "enable": true,
-          "name": "Projects",
+          "name": "Alfa Solutions",
           "weight": 0,
           "hasChildren": true,
           "children": [
             {
               "enable": true,
-              "name": "Project",
-              "url": "https://lumio-astro.netlify.app/case-studies/",
+              "name": "SAP Solutions",
+              "url": "/sap-solutions/",
               "weight": 0
             },
             {
               "enable": true,
-              "name": "Project Single",
-              "url": "https://lumio-astro.netlify.app/case-studies/custom-slug-case-studies-1/",
+              "name": "Alfa e-invoice",
+              "url": "/alfa-e-invoice/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Alfa e-ledger",
+              "url": "/alfa-e-ledger/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Alfa e-archive",
+              "url": "/alfa-e-archive/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Alfa e-agreement",
+              "url": "/alfa-e-agreement/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Alfa Organigram",
+              "url": "/alfa-organigram/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Alfa Solutions",
+              "url": "/alfa-solutions/",
+              "weight": 0
+            },
+            {
+              "enable": true,
+              "name": "Software Development",
+              "url": "/software-development/",
               "weight": 0
             }
           ]
         },
         {
           "enable": true,
-          "name": "Blog",
+          "name": "System Integration",
           "weight": 0,
-          "hasChildren": true,
-          "children": [
-            {
-              "enable": true,
-              "name": "Blog",
-              "url": "https://lumio-astro.netlify.app/blog/",
-              "weight": 0
-            },
-            {
-              "enable": true,
-              "name": "Blog Single",
-              "url": "https://lumio-astro.netlify.app/blog/custom-slug-post-1/",
-              "weight": 0
-            }
-          ]
+          "url": "/system-integration/"
         },
         {
           "enable": true,
-          "name": "Services",
+          "name": "Quality Assurance",
           "weight": 0,
-          "hasChildren": true,
-          "children": [
-            {
-              "enable": true,
-              "name": "Services",
-              "url": "/services/",
-              "weight": 0
-            },
-            {
-              "enable": true,
-              "name": "Services Single",
-              "url": "/services/web-development/",
-              "weight": 0
-            }
-          ]
+          "url": "/quality-assurance/"
         },
         {
           "enable": true,
           "name": "About",
           "url": "https://lumio-astro.netlify.app/about/",
           "weight": 0
-        },
-        {
-          "enable": true,
-          "name": "Team Member",
-          "url": "https://lumio-astro.netlify.app/team",
-          "weight": 0
-        },
-        {
-          "enable": true,
-          "name": "Pricing Plan",
-          "url": "https://lumio-astro.netlify.app/pricing/",
-          "weight": 0
-        },
-        {
-          "enable": true,
-          "name": "FAQ",
-          "url": "https://lumio-astro.netlify.app/faq/",
-          "weight": 0
-        },
-        {
-          "enable": true,
-          "name": "404",
-          "url": "/404/",
-          "weight": 0,
-          "badge": {
-            "enable": true,
-            "label": "Badge",
-            "color": "accent",
-            "_color_comment": "color expected value - accent, info, success, danger, dark",
-            "type": "text",
-            "_type_comment": "type expected value - text, dot"
-          }
-        }
+        }        
       ]
     },
     {
       "enable": true,
-      "name": "Components",
+      "name": "Why Alfa?",
       "weight": 3,
-      "url": "https://lumio-astro.netlify.app/components/",
+      "url": "/why-alfa/",
       "badge": {
         "enable": true,
         "label": "New",

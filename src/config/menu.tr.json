@@ -160,9 +160,9 @@
     },
     {
       "enable": true,
-      "name": "İletişim",
+      "name": "Neden Alfa?",
       "weight": 3,
-      "url": "/iletisim/",
+      "url": "/neden-alfa/",
       "badge": {
         "enable": true,
         "label": "Yeni",
