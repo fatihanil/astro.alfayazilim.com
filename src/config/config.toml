@@ -5,9 +5,9 @@
   tagline          = "The Modern Astro Theme for IT & Consulting Businesses"
   taglineSeparator = "" # default is " - " 
   baseUrl          = "https://lumio-lite-astro.pages.dev" # Base URL for the site and used in OpenGraph meta tags.
-  logo             = "/images/logo.png" # Path to the site's logo
-  logoWhite        = "/images/logo-white.png" # Path to the site's logo
-  logoText         = "Lumio Lite" # Text displayed next to the logo
+  logo             = "/images/alfa_bt_logo.webp" # Path to the site's logo
+  logoWhite        = "/images/alfa_bt_logo.webp" # Path to the site's logo for white/dark variants
+  logoText         = "" # Hide the logo text label
   logoWidth        = "30px" # Width of the logo
   logoHeight       = "30px" # Height of the logo
 
@@ -94,7 +94,7 @@
   [settings.navigationButton]
     enable = true
     label  = "" # Check src/i18n/en.json and src/i18n/fr.json for changing the navigation button label in different languages or directly add value here if you are not using internationalization feature
-    url    = "/#contact"
+    url    = "/contact/"
 
   # Announcement bar in HeaderThree topbar
   [settings.announcementBar]

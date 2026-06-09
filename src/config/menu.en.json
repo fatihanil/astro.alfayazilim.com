@@ -1,11 +1,5 @@
 {
-  "main": [
-    {
-      "enable": true,
-      "name": "Home",
-      "weight": 0,
-      "url": "/"
-    },
+  "main": [    
     {
       "enable": true,
       "name": "Corporate",

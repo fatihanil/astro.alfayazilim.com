@@ -2,12 +2,6 @@
   "main": [
     {
       "enable": true,
-      "name": "Ana Sayfa",
-      "weight": 0,
-      "url": "/"
-    },
-    {
-      "enable": true,
       "name": "Kurumsal",
       "weight": 1,
       "hasChildren": true,
