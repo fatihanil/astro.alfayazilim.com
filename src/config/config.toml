@@ -8,8 +8,8 @@
   logo             = "/images/alfa_bt_logo.webp" # Path to the site's logo
   logoWhite        = "/images/alfa_bt_logo.webp" # Path to the site's logo for white/dark variants
   logoText         = "" # Hide the logo text label
-  logoWidth        = "30px" # Width of the logo
-  logoHeight       = "30px" # Height of the logo
+  logoWidth        = "80px" # Width of the logo (2:1 aspect ratio)
+  logoHeight       = "40px" # Height of the logo
 
   # Add a trailing slash at the end of URLs (e.g., https://example.com/, https://example.com/contact/)
   # Note: Manually restart your server when you change this value
