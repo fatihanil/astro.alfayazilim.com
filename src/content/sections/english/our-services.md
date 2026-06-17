@@ -1,12 +1,12 @@
 ---
 enable: true
 badge: "Our Services"
-title: "Our of services are crafted to meet the needs."
+title: "Comprehensive SAP and technology services tailored to your business."
 image: "/images/home-banner/banner-2.jpg"
-imageAlt: "Our services"
-footerText: "Need Any Kind Of IT Solution For Your Business."
+imageAlt: "ALFA Business Technologies services"
+footerText: "Need an SAP or technology solution for your business?"
 footerLink:
-  label: "View Services"
+  label: "View All Services"
   url: "/services/"
 cardLayout: "horizontal"
 ---

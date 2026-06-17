@@ -1,0 +1,18 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+import ServiceListSection from "@/components/sections/ServiceListSection.astro";
+
+const services = await getEntryCTM("services", "-index", "tr");
+---
+
+<Base {...services.data}>
+  <PageHeader
+    title={services.data.title}
+    breadcrumbTitle={services?.data?.breadcrumbTitle}
+  />
+  <ServiceListSection />
+  <ContactSection />
+</Base>

@@ -1,17 +1,17 @@
 ---
 enable: true
 badge: "// HAKKIMIZDA"
-title: "Yüksek özelleştirilmiş BT tasarım, yönetim ve destek hizmetleri."
+title: "30 Yıllık SAP Uzmanlığı — 70+ Kurumsal Müşterinin Güveniyle"
 imageSecondary: "/images/about/about-rated-pic.jpg"
-imageSecondaryAlt: "Dizüstü bilgisayara bakan ekip üyeleri"
+imageSecondaryAlt: "ALFA ekibi SAP sistemi inceliyor"
 image: "/images/about/about-two.png"
-imageAlt: "Bilgisayar etrafında iş birliği yapan ekip"
-description: "Müşterilerimize en iyi teknoloji çözümlerini sunmak için çalışıyoruz. Deneyimli ekibimizle işletmenizin dijital dönüşümünü hızlandırıyor, rekabet avantajı kazanmanıza yardımcı oluyoruz."
+imageAlt: "ALFA Business Technologies ekibi"
+description: "SAP Recognized Expertise partneri olarak ALFA Business Technologies, bankacılık, enerji, üretim ve kamu hizmetleri sektörlerinde faaliyet gösteren 70'ten fazla kurumsal müşteriye özelleştirilmiş SAP danışmanlığı, yapay zeka çözümleri ve sorunsuz sistem entegrasyonu sunmaktadır. 1994'ten bu yana işletmeleri dönüştürüyoruz."
 
 button:
-  enable: false
+  enable: true
   label: "Daha Fazlasını Keşfet"
-  url: "/#services"
+  url: "/kurumsal/hakkimizda/"
   icon:
     enable: true
     name: "ArrowUpRight"

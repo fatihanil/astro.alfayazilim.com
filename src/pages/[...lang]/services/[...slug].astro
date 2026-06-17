@@ -1,0 +1,34 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import { render } from "astro:content";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+
+export async function getStaticPaths() {
+  const services = await getCollectionCTM("services", "en");
+  return services.map((service) => ({
+    params: { lang: undefined, slug: service.data.customSlug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+
+<Base {...service.data}>
+  <PageHeader
+    title={service.data.title}
+    breadcrumbTitle={service.data.breadcrumbTitle || service.data.title}
+  />
+  <section class="section">
+    <div class="relative container">
+      <div class="prose-styles content has-video-modal">
+        <Content components={{ img: OptimizedImage }} />
+      </div>
+    </div>
+  </section>
+  <ContactSection />
+</Base>

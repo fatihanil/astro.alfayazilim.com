@@ -1,0 +1,25 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { render } from "astro:content";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+
+const entry = await getEntryCTM("pages", "kvkk", "tr");
+const { Content } = await render(entry);
+---
+
+<Base {...entry.data}>
+  <PageHeader
+    title={entry.data.title}
+    breadcrumbTitle={entry.data.breadcrumbTitle || entry.data.title}
+  />
+  <section class="section">
+    <div class="container">
+      <div class="prose-styles content">
+        <Content />
+      </div>
+    </div>
+  </section>
+  <ContactSection />
+</Base>

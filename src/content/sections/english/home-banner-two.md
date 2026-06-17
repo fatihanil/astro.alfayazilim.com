@@ -1,7 +1,7 @@
 ---
-subtitle: "We are IT service agency"
-title: "We help leaders grow their <br /> businesses for a brighter future"
-description: "We are dedicated to guiding you on your it firm personalized approach."
+subtitle: "SAP Recognized Expertise"
+title: "We Enhance and Streamline Your Business Processes for 30 years"
+description: "As an SAP Recognized Expertise partner, we deliver tailored SAP consultancy, custom Alfa solutions and seamless system integration for your digital transformation."
 
 image: "/images/home-banner/banner-3.jpg"
 imageAlt: "Team Collaboration"

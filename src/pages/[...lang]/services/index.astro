@@ -7,7 +7,8 @@ import PageHeader from "@/layouts/components/widgets/PageHeader.astro";
 import ServiceListSection from "@/components/sections/ServiceListSection.astro";
 
 export function getStaticPaths() {
-  return generatePaths();
+  // Only generate /services/ for English; Turkish is at /tr/hizmetler/ (separate file)
+  return [{ params: { lang: undefined } }];
 }
 
 const services = await getEntryCTM("services", "-index", Astro.currentLocale);

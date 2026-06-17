@@ -1,12 +1,12 @@
 ---
 enable: true
 badge: "Hizmetlerimiz"
-title: "Hizmetlerimiz ihtiyaçlarınızı karşılamak için özenle tasarlandı."
+title: "İşletmenize özel kapsamlı SAP ve teknoloji hizmetleri."
 image: "/images/home-banner/banner-2.jpg"
-imageAlt: "Hizmetlerimiz"
-footerText: "İşletmeniz İçin Her Türlü BT Çözümüne İhtiyacınız Var mı."
+imageAlt: "ALFA Business Technologies hizmetleri"
+footerText: "İşletmeniz için bir SAP veya teknoloji çözümüne ihtiyacınız var mı?"
 footerLink:
-  label: "Hizmetleri Görüntüle"
-  url: "/services/"
+  label: "Tüm Hizmetleri Görüntüle"
+  url: "/tr/hizmetler/"
 cardLayout: "horizontal"
 ---

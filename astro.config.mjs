@@ -29,6 +29,8 @@ export default defineConfig({
   },
   image: {
     layout: "constrained",
+    format: "webp",
+    quality: 85,
   },
   fonts,
 

@@ -1,25 +1,20 @@
 ---
 enable: true
 badge: "// ABOUT US"
-title: "Highly tailored IT design, management and support services."
+title: "30 Years of SAP Excellence — Trusted by 70+ Enterprise Clients"
 imageSecondary: "/images/about/about-rated-pic.jpg"
-imageSecondaryAlt: "Company members looking at laptop"
+imageSecondaryAlt: "ALFA team reviewing SAP system"
 image: "/images/about/about-two.png"
-imageAlt: "Team collaborating around computer"
-description: "Nemo enim ipsam voluptatemsit aspernatur aut odit aut dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, dolorem ipsum quia dolor sit amet, consectetur,"
+imageAlt: "ALFA Business Technologies team"
+description: "As an SAP Recognized Expertise partner, ALFA Business Technologies delivers tailored SAP consultancy, AI-powered solutions, and seamless system integration. We've been transforming enterprises across banking, energy, manufacturing, and public utilities since 1994."
 
 button:
-  # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options
-  # (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
-  enable: false
+  enable: true
   label: "Discover More"
-  url: "/#services"
+  url: "/corporate/about/"
   icon:
     enable: true
-    name: "ArrowUpRight" # Optional
-    position: "left" # Optional: left | right
-  variant: "fill" # Optional: fill | outline | text | circle | white
-  # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
-  # rel: "" # Optional
-  # target: "" # Optional
+    name: "ArrowUpRight"
+    position: "left"
+  variant: "fill"
 ---

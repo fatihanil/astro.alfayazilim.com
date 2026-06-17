@@ -103,4 +103,8 @@ export const collections = {
   homepage: defineCollection({
     loader: contentLoader("./src/content/homepage"),
   }),
+  pages: defineCollection({
+    loader: contentLoader("./src/content/pages"),
+    schema: page,
+  }),
 };

@@ -1,7 +1,7 @@
 ---
-subtitle: "Biz bir BT hizmet ajansıyız"
-title: "Liderlerin işletmelerini <br /> daha parlak bir gelecek için büyütmesine yardımcı oluyoruz"
-description: "BT firmanıza özel kişiselleştirilmiş yaklaşımımızla size rehberlik etmeye adanmışız."
+subtitle: "SAP Recognized Expertise"
+title: "30 Yıldır İş Süreçlerinizi Güçlendiriyoruz"
+description: "SAP Recognized Expertise statüsüne sahip olarak, SAP danışmanlığı, Alfa Çözüm Paketleri ve Sistem entegrasyonu hizmetleri sunuyoruz."
 
 image: "/images/home-banner/banner-3.jpg"
 imageAlt: "Ekip İş Birliği"

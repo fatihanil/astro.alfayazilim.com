@@ -1,5 +1,5 @@
 {
-  "main": [    
+  "main": [
     {
       "enable": true,
       "name": "Corporate",
@@ -9,13 +9,13 @@
         {
           "enable": true,
           "name": "About Us",
-          "url": "/about-us/",
+          "url": "/corporate/about/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Human Resources",
-          "url": "/human-resources/",
+          "name": "Careers",
+          "url": "/corporate/careers/",
           "weight": 1
         }
       ]
@@ -35,178 +35,177 @@
       }
     },
     {
-      "name": "Services",
       "enable": true,
+      "name": "Services",
       "weight": 3,
       "hasChildren": true,
       "children": [
         {
           "enable": true,
-          "name": "Consulting",
+          "name": "SAP Consultancy",
           "weight": 0,
           "hasChildren": true,
           "children": [
             {
               "enable": true,
-              "name": "SAP IS-U Consulting",
-              "url": "/sap-isu-consulting/",
+              "name": "SAP IS-U Consultancy",
+              "url": "/services/sap-consultancy/sap-is-u-consultancy/",
               "weight": 1
             },
             {
               "enable": true,
-              "name": "SAP Hybris",
-              "url": "/sap-hybris/",
+              "name": "SAP CRM Consultancy",
+              "url": "/services/sap-consultancy/sap-crm-consultancy/",
               "weight": 2
             },
             {
               "enable": true,
-              "name": "SAP CRM Consulting",
-              "url": "/sap-crm-consulting/",
+              "name": "Business Intelligence & Analytics",
+              "url": "/services/sap-consultancy/business-intelligence/",
               "weight": 3
             },
             {
               "enable": true,
-              "name": "Business Intelligence & Analytics",
-              "url": "/business-intelligence-consulting/",
+              "name": "SAP ERP Consultancy",
+              "url": "/services/sap-consultancy/sap-erp-consultancy/",
               "weight": 4
             },
             {
               "enable": true,
-              "name": "HANA & S/4 HANA",
-              "url": "/hana-s4hana-consulting/",
+              "name": "SAP Technology Consultancy",
+              "url": "/services/sap-consultancy/sap-technology-consultancy/",
               "weight": 5
             },
             {
               "enable": true,
-              "name": "SAP ERP Consulting",
-              "url": "/sap-erp-consulting/",
+              "name": "Document Management & Archiving",
+              "url": "/services/sap-consultancy/sap-document-governance-and-archieving/",
               "weight": 6
             },
             {
               "enable": true,
-              "name": "SAP Technology Consulting",
-              "url": "/sap-technology-consulting/",
+              "name": "SAP HANA & S/4HANA",
+              "url": "/services/sap-consultancy/sap-hana-s4-hana/",
               "weight": 7
-            },
-            {
-              "enable": true,
-              "name": "Document Management & Archiving",
-              "url": "/document-management-consulting/",
-              "weight": 8
             }
           ]
         },
         {
           "enable": true,
+          "name": "Artificial Intelligence",
+          "url": "/services/artificial-intelligence/",
+          "weight": 1
+        },
+        {
+          "enable": true,
+          "name": "SAP AI Joule",
+          "url": "/services/sap-ai-joule/",
+          "weight": 2
+        },
+        {
+          "enable": true,
           "name": "Alfa Solutions",
-          "weight": 1,
+          "weight": 3,
           "hasChildren": true,
           "children": [
             {
               "enable": true,
-              "name": "SAP Solutions",
-              "url": "/sap-solutions/",
-              "weight": 0
-            },
-            {
-              "enable": true,
               "name": "ALFA e-Invoice",
-              "url": "/alfa-e-invoice/",
+              "url": "/services/alfa-solutions/alfa-e-fatura/",
               "weight": 1
             },
             {
               "enable": true,
               "name": "ALFA e-Ledger",
-              "url": "/alfa-e-ledger/",
+              "url": "/services/alfa-solutions/alfa-e-defter/",
               "weight": 2
             },
             {
               "enable": true,
               "name": "ALFA e-Archive",
-              "url": "/alfa-e-archive/",
+              "url": "/services/alfa-solutions/alfa-e-arsiv/",
               "weight": 3
             },
             {
               "enable": true,
               "name": "ALFA e-Agreement",
-              "url": "/alfa-e-agreement/",
+              "url": "/services/alfa-solutions/alfa-e-mutabakat/",
               "weight": 4
             },
             {
               "enable": true,
               "name": "ALFA Organigram",
-              "url": "/alfa-organigram/",
+              "url": "/services/alfa-solutions/alfa-organigram/",
               "weight": 5
-            },
-            {
-              "enable": true,
-              "name": "Mobile Solutions",
-              "url": "/mobile-solutions/",
-              "weight": 6
-            },
-            {
-              "enable": true,
-              "name": "Software Development",
-              "url": "/software-development/",
-              "weight": 7
             }
           ]
         },
         {
           "enable": true,
-          "name": "System Integrations",
-          "url": "/system-integration/",
-          "weight": 2
+          "name": "SAP Solutions",
+          "weight": 4,
+          "hasChildren": true,
+          "children": [
+            {
+              "enable": true,
+              "name": "SAP PLM",
+              "url": "/services/sap-solutions/sap-plm/",
+              "weight": 1
+            },
+            {
+              "enable": true,
+              "name": "SAP Workflow",
+              "url": "/services/sap-solutions/sap-workflow/",
+              "weight": 2
+            },
+            {
+              "enable": true,
+              "name": "SAP Portal",
+              "url": "/services/sap-solutions/sap-portal/",
+              "weight": 3
+            },
+            {
+              "enable": true,
+              "name": "SAP Mobile",
+              "url": "/services/sap-solutions/sap-mobile/",
+              "weight": 4
+            },
+            {
+              "enable": true,
+              "name": "Software Development",
+              "url": "/services/sap-solutions/software-development/",
+              "weight": 5
+            }
+          ]
+        },
+        {
+          "enable": true,
+          "name": "System Integration",
+          "url": "/services/system-integration/",
+          "weight": 5
         },
         {
           "enable": true,
           "name": "Quality Assurance",
-          "url": "/quality-assurance/",
-          "weight": 3
-        }
-      ]
-    },
-    {
-      "enable": true,
-      "name": "Projects",
-      "weight": 4,
-      "hasChildren": true,
-      "children": [
-        {
-          "enable": true,
-          "name": "References",
-          "url": "/references/",
-          "weight": 0
+          "url": "/services/quality-assurance/",
+          "weight": 6
         },
         {
           "enable": true,
-          "name": "Success Stories",
-          "url": "/success-stories/",
-          "weight": 1
+          "name": "Support & Training",
+          "url": "/services/support-and-training/",
+          "weight": 7
         }
       ]
-    }
-  ],
-  "topbar": [
-    {
-      "enable": true,
-      "name": "Help",
-      "url": "/",
-      "weight": 0
     },
     {
       "enable": true,
-      "name": "Support",
-      "url": "/",
-      "weight": 0
-    },
-    {
-      "enable": true,
-      "name": "Contact",
-      "url": "/",
-      "weight": 0
+      "name": "References",
+      "weight": 4,
+      "url": "/references/"
     }
   ],
+  "topbar": [],
   "footer": [
     {
       "label": "Menu",
@@ -220,26 +219,32 @@
         {
           "enable": true,
           "name": "About Us",
-          "url": "/about/",
-          "weight": 0
+          "url": "/corporate/about/",
+          "weight": 1
+        },
+        {
+          "enable": true,
+          "name": "Why Alfa?",
+          "url": "/why-alfa/",
+          "weight": 2
         },
         {
           "enable": true,
           "name": "Services",
           "url": "/services/",
-          "weight": 0
+          "weight": 3
         },
         {
           "enable": true,
-          "name": "Case Studies",
-          "url": "/case-studies/",
-          "weight": 0
+          "name": "References",
+          "url": "/references/",
+          "weight": 4
         },
         {
           "enable": true,
-          "name": "Contact",
-          "url": "/contact/",
-          "weight": 0
+          "name": "GDPR",
+          "url": "/gdpr/",
+          "weight": 5
         }
       ]
     },
@@ -248,33 +253,39 @@
       "list": [
         {
           "enable": true,
-          "name": "App Development",
-          "url": "/services/",
+          "name": "SAP Consultancy",
+          "url": "/services/sap-consultancy/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Database Security",
-          "url": "/services/",
-          "weight": 0
+          "name": "Artificial Intelligence",
+          "url": "/services/artificial-intelligence/",
+          "weight": 1
         },
         {
           "enable": true,
-          "name": "Cyber Security",
-          "url": "/services/",
-          "weight": 0
+          "name": "Alfa Solutions",
+          "url": "/services/alfa-solutions/",
+          "weight": 2
         },
         {
           "enable": true,
-          "name": "Digital Marketing",
-          "url": "/services/",
-          "weight": 0
+          "name": "SAP Solutions",
+          "url": "/services/sap-solutions/",
+          "weight": 3
         },
         {
           "enable": true,
-          "name": "Graphic Designing",
-          "url": "/services/",
-          "weight": 0
+          "name": "System Integration",
+          "url": "/services/system-integration/",
+          "weight": 4
+        },
+        {
+          "enable": true,
+          "name": "Quality Assurance",
+          "url": "/services/quality-assurance/",
+          "weight": 5
         }
       ]
     }
