@@ -41,7 +41,7 @@
   },
   "footerBlock": {
     "description": "Müşterilerimize en iyi BT çözümlerini sunmaya adanmış, yenilikçi ve güvenilir bir teknoloji ortağıyız.",
-    "copyright": "Telif Hakkı © 2024 Lumio Tüm Hakları Saklıdır.",
+    "copyright": "Telif Hakkı © {year} Alfa Yazılım Tüm Hakları Saklıdır.",
     "contactBlockLabel": "İletişim",
     "aboutUsLabel": "Hakkımızda",
     "quickLinksLabel": "Hızlı Bağlantılar",

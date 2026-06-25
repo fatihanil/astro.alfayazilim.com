@@ -17,7 +17,8 @@ let footerMenus = t("footer") as {
 let { copyright, footerDescription } = config.settings;
 
 footerDescription = footerDescription || t("footerBlock.description");
-const copyrightText = copyright.text;
+const currentYear = new Date().getFullYear().toString();
+const copyrightText = copyright.text.replace("{year}", currentYear);
 ---
 
 <footer>
@@ -131,7 +132,7 @@ const copyrightText = copyright.text;
             <div
               class="text-text-inverse/50 text-center"
               set:html={markdownify(
-                t("footerBlock.copyright") || copyrightText,
+                (t("footerBlock.copyright") || copyrightText).replace("{year}", currentYear),
                 true,
               )}
             />

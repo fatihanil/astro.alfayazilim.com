@@ -14,10 +14,9 @@ ALFA Business Technologies is committed to protecting the personal data of all i
 ## Data Controller
 
 **ALFA Business Technologies**  
-Ofisim İstanbul Plaza – Tugay Yolu Caddesi B Blok No: 18/41 K:5  
-34846 Cevizli Maltepe / İSTANBUL / TÜRKİYE  
+Ofisim İstanbul Plaza – Tugay Yolu Caddesi No:18/41 K:5 34846 Maltepe / İSTANBUL / TÜRKİYE  
 Phone: +90 (216) 550 50 20-21  
-Email: [email protected]
+Email: [email protected]
 
 ## What Data We Collect
 

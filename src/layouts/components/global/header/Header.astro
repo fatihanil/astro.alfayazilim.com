@@ -9,15 +9,31 @@ import config from ".astro/config.generated.json";
 import NavMenuItem from "@/layouts/components/global/header/MenuItem.astro";
 import NavToggleBtn from "@/components/global/header/NavbarToggler.astro";
 import LanguageSwitcher from "@/layouts/components/global/header/LanguageSwitcher.astro";
+import { getLocalizedPathnameCTM } from "@/lib/utils/localizedRouteResolver";
 
 const t = await useTranslations(Astro.currentLocale as string);
 let main = t("main") as NavigationLink[];
 main = filteredEnabled(main);
 
+const { stickyHeader, navigationButton } = config.settings;
+
+const navigationButtonUrl = navigationButton.enable
+  ? await getLocalizedPathnameCTM(
+      navigationButton.url || "/",
+      undefined,
+      Astro.currentLocale,
+    )
+  : undefined;
+
+const navigationButtonProps = navigationButton.enable
+  ? {
+      ...navigationButton,
+      url: navigationButtonUrl,
+    }
+  : undefined;
+
 // Sort menus by weight
 main = sortByWeight(main) as NavigationLink[];
-
-const { stickyHeader, navigationButton } = config.settings;
 ---
 
 <header
@@ -45,40 +61,38 @@ const { stickyHeader, navigationButton } = config.settings;
           )
         }
         {
-          navigationButton.enable && (
+          navigationButtonProps && (
             <li class="max-lg:px-2 max-lg:py-2 lg:hidden" role="menuitem">
-              {navigationButton.enable && (
-                <Button
-                  variant="fill"
-                  {...navigationButton}
-                  icon={{
-                    enable: true,
-                    name: "ArrowUpRight",
-                    position: "left",
-                  }}
-                  label={navigationButton.label || t("navigation.buttonLabel")}
-                  class="btn-primary justify-center"
-                />
-              )}
+              <Button
+                variant="fill"
+                {...navigationButtonProps}
+                icon={{
+                  enable: true,
+                  name: "ArrowUpRight",
+                  position: "left",
+                }}
+                label={navigationButtonProps.label || t("navigation.buttonLabel")}
+                class="btn-primary justify-center"
+              />
             </li>
           )
         }
       </ul>
 
       {
-        (navigationButton.enable || config.settings.multilingual.enable) && (
+        (navigationButtonProps || config.settings.multilingual.enable) && (
           <div class="hidden gap-3.5 ps-8 max-lg:ms-auto max-lg:me-4 lg:flex lg:items-center lg:py-4 xl:ps-9.75">
             {config.settings.multilingual.enable && <LanguageSwitcher />}
-            {navigationButton.enable && (
+            {navigationButtonProps && (
               <Button
                 variant="fill"
-                {...navigationButton}
+                {...navigationButtonProps}
                 icon={{
                   enable: true,
                   name: "ArrowUpRight",
                   position: "left",
                 }}
-                label={navigationButton.label || t("navigation.buttonLabel")}
+                label={navigationButtonProps.label || t("navigation.buttonLabel")}
                 class="btn-primary"
               />
             )}

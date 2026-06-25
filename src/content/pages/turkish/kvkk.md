@@ -14,10 +14,9 @@ ALFA Business Technologies olarak, 6698 sayılı Kişisel Verilerin Korunması K
 ## Veri Sorumlusu
 
 **ALFA Business Technologies**  
-Ofisim İstanbul Plaza – Tugay Yolu Caddesi B Blok No: 18/41 K:5  
-34846 Cevizli Maltepe / İSTANBUL / TÜRKİYE  
+Ofisim İstanbul Plaza – Tugay Yolu Caddesi No:18/41 K:5 34846 Maltepe / İSTANBUL / TÜRKİYE  
 Telefon: +90 (216) 550 50 20-21  
-E-posta: [email protected]
+E-posta: [email protected]
 
 ## Hangi Verileri Topluyoruz?
 

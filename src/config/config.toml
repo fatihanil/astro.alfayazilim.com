@@ -41,9 +41,9 @@
 # Contact Information
 # -----------------------------------------------------------------------------------------------------------------------------------
 [contact]
-  location = "Germany — 785 15h Street, Office 478 Berlin, De 81566"
-  phone    = "+1 840 841 25 69"
-  email    = "infocontact@gmail.com"
+  location = "Ofisim İstanbul Plaza – Tugay Yolu Caddesi No:18/41 K:5 34846 Maltepe / İSTANBUL / TÜRKİYE"
+  phone    = "+90 (216) 550 50 20-21"
+  email    = "info@alfayazilim.com"
 
 # Different theme settings
 # -----------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@
   # For changing footer description and footer copyright in different languages see src/i18n/en.json and src/i18n/fr.json
   [settings.copyright]
     enable = true
-    text   = "Copyright © 2024 Lumio All Rights Reserved." # Check src/i18n/en.json and src/i18n/fr.json for changing the copyright text in different languages or directly add value here if you are not using internationalization feature
+    text   = "Copyright © {year} Alfa Yazılım All Rights Reserved." # Check src/i18n/en.json and src/i18n/fr.json for changing the copyright text in different languages or directly add value here if you are not using internationalization feature
 
   # Mailchimp Subscription Form located in footer
   [settings.subscription]

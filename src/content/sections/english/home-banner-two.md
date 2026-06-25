@@ -23,8 +23,8 @@ button:
 
 satisfactionClients:
   enable: true
-  count: "2.5m"
-  label: "We consultant customer world-wide"
+  count: "Hundreds"
+  label: "of satisfied clients"
   avatars:
     - "/images/customers/avatar/client-1-1.png"
     - "/images/customers/avatar/client-2-1.png"

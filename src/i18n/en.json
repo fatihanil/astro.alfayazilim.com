@@ -41,7 +41,7 @@
   },
   "footerBlock": {
     "description": "Duis aute irure dolor in reprehenderit velit esse cillum dolore in fugiat nulla pariatur, excepteur sint",
-    "copyright": "Copyright © 2024 Lumio All Rights Reserved.",
+    "copyright": "Copyright © {year} Alfa Yazılım All Rights Reserved.",
     "contactBlockLabel": "Contact",
     "aboutUsLabel": "About us",
     "quickLinksLabel": "Quick Links",

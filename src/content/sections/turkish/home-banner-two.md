@@ -18,8 +18,8 @@ button:
 
 satisfactionClients:
   enable: true
-  count: "2.5m"
-  label: "Dünya genelinde danışmanlık müşterimiz"
+  count: "Yüzlerce"
+  label: "memnun müşteri"
   avatars:
     - "/images/customers/avatar/client-1-1.png"
     - "/images/customers/avatar/client-2-1.png"

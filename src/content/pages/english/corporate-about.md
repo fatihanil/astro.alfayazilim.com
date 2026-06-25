@@ -56,5 +56,5 @@ We proudly serve 70+ leading organizations across diverse industries including:
 ## Contact Us
 
 **Phone:** +90 (216) 550 50 20-21  
-**Email:** [email protected]  
-**Address:** Ofisim İstanbul Plaza – Tugay Yolu Caddesi B Blok No: 18/41 K:5 34846 Cevizli Maltepe / İSTANBUL / TÜRKİYE
+**Email:** [email protected]  
+**Address:** Ofisim İstanbul Plaza – Tugay Yolu Caddesi No:18/41 K:5 34846 Maltepe / İSTANBUL / TÜRKİYE
