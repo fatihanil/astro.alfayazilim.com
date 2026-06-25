@@ -18,7 +18,7 @@ interface Props {
 }
 
 const {
-  settings: { contactFormAction, contactFormProvider },
+  settings: { contactFormAction, contactFormProvider, turnstileSiteKey },
 } = config;
 
 const genIdFromLabel = (label: string) =>
@@ -293,6 +293,18 @@ const defaultErrorMessage = messageContent.error || "Something went wrong. Pleas
   }
 
   {
+    turnstileSiteKey && (
+      <div class="contact-form-field contact-form-field--full contact-form-turnstile">
+        <div
+          class="cf-turnstile"
+          data-sitekey={turnstileSiteKey}
+          data-theme="auto"
+        />
+      </div>
+    )
+  }
+
+  {
     form.submitButton && (
       <div class="contact-form-submit">
         <Button
@@ -352,6 +364,13 @@ const defaultErrorMessage = messageContent.error || "Something went wrong. Pleas
     )
   }
 </form>
+
+<script
+  is:inline
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -580,6 +599,17 @@ const defaultErrorMessage = messageContent.error || "Something went wrong. Pleas
             });
 
           if (hasError || !formUtils?.isFormFilled(form)) return;
+
+          const turnstileToken = formData.get("cf-turnstile-response");
+          if (form.querySelector(".cf-turnstile") && !turnstileToken) {
+            formUtils.setMessage(
+              "Lütfen robot doğrulamasını tamamlayın.",
+              false,
+              false,
+              form,
+            );
+            return;
+          }
 
           formUtils.setMessage(
             "Submitting your message...",

@@ -62,10 +62,13 @@
 
   # documentation - https://formspree.io/ | https://formsubmit.co/ | https://docs.netlify.com/forms/setup/
   # Form action URL for the contact form (For more settings related to form see "src/content/sections/contact-section.md")
-  contactFormAction = "https://formsubmit.co/temp.gats@gmail.com" # https://formspree.io/f/your_form_id | https://formsubmit.co/your_form_submission_receive_email | "/"
+  contactFormAction = "https://formsubmit.co/info@alfayazilim.com" # https://formspree.io/f/your_form_id | https://formsubmit.co/your_form_submission_receive_email | "/"
 
-  # formspree | formsubmit.co | netlify (default is formsubmit.co) 
+  # formspree | formsubmit.co | netlify (default is formsubmit.co)
   contactFormProvider = "formsubmit.co"
+
+  # Cloudflare Turnstile site key (https://dash.cloudflare.com/turnstile)
+  turnstileSiteKey = "0x4AAAAAADqpgQn_HssTnR0u"
 
   footerDescription = "" # Check src/i18n/en.json and src/i18n/fr.json for changing the footer description in different languages or directly add value here if you are not using internationalization feature
 

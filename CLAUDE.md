@@ -36,9 +36,17 @@ All runtime config comes from `.astro/config.generated.json`. Never import `conf
 
 Note: `@/components/` maps to `src/layouts/components/`, NOT `src/components/`.
 
+## Font Yapılandırması
+
+`src/config/fonts.json` dosyası Google Fonts tanımlarını tutar. Aktif font **Source Sans 3**'tür; Türkçe karakter desteği için `subsets: ["latin", "latin-ext"]` zorunludur. CSS değişkeni `--font-primary` olarak tanımlıdır.
+
+> **Not:** Font değiştirilirken `latin-ext` subset'ini kaldırmayın; Türkçe karakterler (ğ, ş, ı, ö, ü, ç) bozulur.
+
 ## i18n Architecture
 
-- Two languages: `en` (default, no URL prefix) and `tr` (prefix `/tr/`)
+Desteklenen diller yalnızca **`en`** ve **`tr`**'dir (Fransızca Haziran 2026'da kaldırıldı). `src/config/language.json` dil tanımlarını içerir; üçüncü bir dil eklemek için hem bu dosya hem de içerik dizini ve menu dosyası gerekir.
+
+- `en` (default, no URL prefix) ve `tr` (prefix `/tr/`)
 - `src/config/language.json` defines `languageCode` and `contentDir` (`english` / `turkish`)
 - `showDefaultLangInUrl: false` — EN routes are at `/path/`, TR routes at `/tr/path/`
 - Language-specific content lives in `src/content/{collection}/english/` and `.../turkish/`
@@ -54,6 +62,27 @@ Note: `@/components/` maps to `src/layouts/components/`, NOT `src/components/`.
 - `getEntryRouteParam(entry)` — returns `entry.data.customSlug` if set, otherwise the last path segment of `entry.id`
 - `getEntrySlugCTM(entry, lang)` — combines the above two; used in cards to build href links
 
+### Dil Değiştirici URL Çevirisi (`src/lib/utils/localizedRouteResolver.ts`)
+
+`getLocalizedPathnameCTM(pathname, sourceLang, targetLang)` fonksiyonu mevcut sayfanın URL'sini hedef dile çevirir. Dil değiştirici (LanguageSwitcher) ve Header navigasyon butonu bunu kullanır.
+
+Çeviri **statik haritalarla** yapılır (content lookup değil):
+
+| Harita | Amacı |
+|---|---|
+| `pageSlugTranslationMap` | Tek-segment sayfa slug'ları: `contact` → `iletisim`, `gdpr` → `kvkk` vb. |
+| `serviceSlugTranslationMap` | Servis `customSlug`'ları: `sap-consultancy/...` → `sap-danismanlik/...` vb. |
+| `multiSegmentPageTranslationMap` | Çok-segment sayfalar: `corporate/about` → `kurumsal/hakkimizda` vb. |
+| `fixedUrlPages` | Lokale prefix almayan sabit URL'ler: `kvkk` → `/kvkk/` |
+
+**Yeni sayfa veya servis eklendiğinde** bu haritalara karşılıklı giriş yapılmalıdır, aksi hâlde dil değiştirici yanlış URL üretir.
+
+**Header navigasyon butonu:** `config.toml`'daki `[settings.navigationButton].url` değeri Header.astro'da `getLocalizedPathnameCTM` ile lokalize edilerek render edilir — ham URL doğrudan kullanılmaz.
+
+### Sabit URL Sayfalar
+
+`/kvkk/` sayfası `/tr/kvkk/` gibi bir karşılığı olmayan, dil fark etmeksizin tek URL'de sunan özel bir sayfadır. `fixedUrlPages` kaydı ve `src/pages/kvkk/index.astro` dosyası ile uygulanmıştır. Benzer bir sayfa eklenecekse aynı pattern izlenmelidir.
+
 ## Routing Architecture
 
 **The project uses a hybrid routing approach** due to EN/TR having different URL slugs (e.g., `/services/sap-consultancy/` vs `/tr/hizmetler/sap-danismanlik/`):
@@ -65,9 +94,20 @@ Note: `@/components/` maps to `src/layouts/components/`, NOT `src/components/`.
 | `src/pages/[...lang]/services/[...slug].astro` | `/services/{customSlug}/` for each EN service (lang: undefined) |
 | `src/pages/tr/hizmetler/index.astro` | `/tr/hizmetler/` |
 | `src/pages/tr/hizmetler/[...slug].astro` | `/tr/hizmetler/{customSlug}/` for each TR service |
-| `src/pages/corporate/...`, `src/pages/why-alfa/...`, etc. | EN standalone pages |
-| `src/pages/tr/kurumsal/...`, `src/pages/tr/neden-alfa/...`, etc. | TR standalone pages |
-| `src/pages/kvkk/index.astro` | `/kvkk/` (root-level, TR content) |
+| `src/pages/corporate/index.astro` | `/corporate/` |
+| `src/pages/corporate/about/index.astro` | `/corporate/about/` |
+| `src/pages/corporate/careers/index.astro` | `/corporate/careers/` |
+| `src/pages/why-alfa/index.astro` | `/why-alfa/` |
+| `src/pages/references/index.astro` | `/references/` |
+| `src/pages/gdpr/index.astro` | `/gdpr/` |
+| `src/pages/contact/index.astro` | `/contact/` |
+| `src/pages/tr/kurumsal/index.astro` | `/tr/kurumsal/` |
+| `src/pages/tr/kurumsal/hakkimizda/index.astro` | `/tr/kurumsal/hakkimizda/` |
+| `src/pages/tr/kurumsal/insan-kaynaklari/index.astro` | `/tr/kurumsal/insan-kaynaklari/` |
+| `src/pages/tr/neden-alfa/index.astro` | `/tr/neden-alfa/` |
+| `src/pages/tr/referanslar/index.astro` | `/tr/referanslar/` |
+| `src/pages/tr/iletisim/index.astro` | `/tr/iletisim/` |
+| `src/pages/kvkk/index.astro` | `/kvkk/` (sabit URL — TR içerik, locale prefix yok) |
 
 **Important routing rule:** Service catch-all routes must use `{ lang: undefined }` in `getStaticPaths` to prevent Astro's i18n system from auto-generating `/tr/services/...` mirror pages. The TR equivalent is handled by the explicit `tr/hizmetler/[...slug].astro` file.
 
@@ -99,6 +139,30 @@ Menu URLs are stored **without** the `/tr/` prefix in `menu.tr.json`. The system
 ## Section Content Pattern
 
 Homepage sections are data-driven markdown files in `src/content/sections/{lang}/`. Each section component calls `getEntryCTM("sections", "section-name", locale)` to load its content. The `enable: true/false` field in frontmatter controls whether the section renders.
+
+## Contact Form
+
+Form sağlayıcısı **formsubmit.co**'dur. Gönderimler `info@alfayazilim.com` adresine iletilir.
+
+İlgili `config.toml` anahtarları (`[settings]` altında):
+- `contactFormAction` — formsubmit.co endpoint URL'i (e-posta adresi içerir)
+- `contactFormProvider` — `"formsubmit.co"` | `"formspree"` | `"netlify"`
+- `turnstileSiteKey` — Cloudflare Turnstile site key'i (public)
+
+### Cloudflare Turnstile
+
+`src/layouts/components/widgets/ContactForm.astro` bileşenine entegre edilmiştir:
+
+- `turnstileSiteKey` config'den okunur; boşsa widget render edilmez.
+- Turnstile JS'i `is:inline` script tag ile `challenges.cloudflare.com/turnstile/v0/api.js`'den yüklenir.
+- Submit handler'da `cf-turnstile-response` alanı kontrol edilir; boşsa gönderim engellenir.
+- Site key'i güncellemek için yalnızca `config.toml` → `turnstileSiteKey` değerini değiştirip `npm run toml:watch` çalıştırmak yeterlidir.
+
+**Not:** formsubmit.co sunucu tarafı Turnstile doğrulaması yapmaz; doğrulama yalnızca istemci tarafındadır (bot engellemek için yeterlidir).
+
+## Footer Copyright Yılı
+
+`config.toml` ve `src/i18n/{en,tr}.json` dosyalarındaki copyright metninde `{year}` placeholder'ı kullanılabilir. `Footer.astro` bunu runtime'da `new Date().getFullYear()` ile replace eder — sabit yıl yazmak yerine `{year}` kullanılmalıdır.
 
 ## Image Optimization
 
