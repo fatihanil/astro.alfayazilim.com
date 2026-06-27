@@ -2,9 +2,11 @@
 import Base from "@/layouts/Base.astro";
 import { getCollectionCTM } from "@/lib/contentParser.astro";
 import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
 import ContactSection from "@/components/sections/ContactSection.astro";
 import PageHeader from "@/components/widgets/PageHeader.astro";
+import ServiceListSection from "@/components/sections/ServiceListSection.astro";
 
 export async function getStaticPaths() {
   const services = await getCollectionCTM("services", "en");
@@ -15,6 +17,24 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+const isCategory = service.data.isCategory === true;
+
+let childServices: CollectionEntry<"services">[] = [];
+if (isCategory && service.data.childSlugs?.length) {
+  const allServices = await getCollectionCTM("services", "en");
+  const slugSet = new Set(service.data.childSlugs);
+  const slugIndexMap = new Map(
+    service.data.childSlugs.map((s: string, i: number) => [s, i]),
+  );
+  childServices = allServices
+    .filter((s) => slugSet.has(s.data.customSlug ?? ""))
+    .sort(
+      (a, b) =>
+        (slugIndexMap.get(a.data.customSlug ?? "") ?? 999) -
+        (slugIndexMap.get(b.data.customSlug ?? "") ?? 999),
+    );
+}
+
 const { Content } = await render(service);
 ---
 
@@ -25,10 +45,13 @@ const { Content } = await render(service);
   />
   <section class="section">
     <div class="relative container">
-      <div class="prose-styles content has-video-modal">
+      <div class:list={["prose-styles content", !isCategory && "has-video-modal"]}>
         <Content components={{ img: OptimizedImage }} />
       </div>
     </div>
   </section>
+  {isCategory && childServices.length > 0 && (
+    <ServiceListSection services={childServices} />
+  )}
   <ContactSection />
 </Base>

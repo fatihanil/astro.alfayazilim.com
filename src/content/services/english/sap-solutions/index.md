@@ -6,6 +6,13 @@ metaTitle: "SAP Solutions | ALFA Business Technologies"
 metaDescription: "Comprehensive SAP Solutions from ALFA Business Technologies — SAP PLM, workflow automation, portal development, mobile solutions, and custom ABAP development."
 customSlug: "sap-solutions"
 weight: 4
+isCategory: true
+childSlugs:
+  - "sap-solutions/sap-plm"
+  - "sap-solutions/sap-workflow"
+  - "sap-solutions/sap-portal"
+  - "sap-solutions/sap-mobile"
+  - "sap-solutions/software-development"
 ---
 
 ## SAP Solutions

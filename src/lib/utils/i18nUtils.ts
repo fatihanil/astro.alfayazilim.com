@@ -362,9 +362,16 @@ export const getEntryRouteParam = (
     .pop() ||
   entry.id;
 
+const collectionBasePaths: Record<string, Record<string, string>> = {
+  services: { en: "services", tr: "hizmetler" },
+};
+
 export const getEntrySlugCTM = (
   entry: SlugEntry,
   providedLang: string | undefined,
 ): string => {
-  return getLocaleUrlCTM(getEntryRouteParam(entry), providedLang, entry.collection);
+  const lang = normalizeLocaleCode(providedLang);
+  const paths = collectionBasePaths[entry.collection];
+  const basePath = paths ? (paths[lang] ?? entry.collection) : entry.collection;
+  return getLocaleUrlCTM(getEntryRouteParam(entry), providedLang, basePath);
 };

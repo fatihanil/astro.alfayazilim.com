@@ -6,6 +6,15 @@ metaTitle: "SAP Consultancy | ALFA Business Technologies"
 metaDescription: "ALFA Business Technologies delivers expert SAP consultancy services — IS-U, CRM, ERP, Business Intelligence, HANA/S4HANA, and Document Management."
 customSlug: "sap-consultancy"
 weight: 1
+isCategory: true
+childSlugs:
+  - "sap-consultancy/sap-is-u-consultancy"
+  - "sap-consultancy/sap-crm-consultancy"
+  - "sap-consultancy/sap-erp-consultancy"
+  - "sap-consultancy/business-intelligence"
+  - "sap-consultancy/sap-technology-consultancy"
+  - "sap-consultancy/sap-document-governance-and-archieving"
+  - "sap-consultancy/sap-hana-s4-hana"
 ---
 
 ## SAP Consultancy

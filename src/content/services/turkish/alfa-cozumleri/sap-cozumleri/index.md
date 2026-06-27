@@ -6,6 +6,13 @@ metaTitle: "SAP Çözümleri | ALFA Business Technologies"
 metaDescription: "ALFA Business Technologies kapsamlı SAP Çözümleri — SAP PLM, iş akışı otomasyonu, portal geliştirme, mobil çözümler ve özel ABAP geliştirme."
 customSlug: "alfa-cozumleri/sap-cozumleri"
 weight: 4
+isCategory: true
+childSlugs:
+  - "alfa-cozumleri/sap-cozumleri/sap-plm"
+  - "alfa-cozumleri/sap-cozumleri/sap-is-akisi"
+  - "alfa-cozumleri/sap-cozumleri/sap-portal"
+  - "alfa-cozumleri/sap-mobile"
+  - "alfa-cozumleri/yazilim-gelistirme"
 ---
 
 ## SAP Çözümleri

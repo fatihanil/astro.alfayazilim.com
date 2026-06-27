@@ -5,6 +5,7 @@ import { getCollectionCTM } from "@/lib/contentParser.astro";
 import config from ".astro/config.generated.json";
 import type { ourServicesSectionSchema } from "@/sections.schema";
 import type { z } from "astro/zod";
+import type { CollectionEntry } from "astro:content";
 import ServiceCard from "../cards/ServiceCard.astro";
 
 const { servicesFolder } = config.settings;
@@ -13,6 +14,7 @@ const { servicesFolder } = config.settings;
 type SectionType = z.infer<typeof ourServicesSectionSchema>;
 type Props = {
   listPage?: boolean;
+  services?: CollectionEntry<"services">[];
   content?: SectionType;
   pagination?: {
     enable: boolean;
@@ -21,27 +23,34 @@ type Props = {
   };
 };
 
-let { listPage = false } = Astro.props as Props;
+let { listPage = false, services: propServices } = Astro.props as Props;
 
-let list = await getCollectionCTM(
-  servicesFolder as "services",
-  Astro.currentLocale,
-);
-
-// Sort list by date
-list = sortByDate(list);
-// Limit the number of items to be displayed
-let totalPages = Math.ceil(list?.length / config.settings.pagination);
+let list: CollectionEntry<"services">[];
+let totalPages = 0;
 const pagination = Astro.props.pagination;
-if (pagination) {
-  const indexOfLastPost = pagination?.currentPage * config.settings.pagination;
-  const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
-  list = list.slice(indexOfFirstPost, indexOfLastPost);
-}
 
-// Limit the number of items to be displayed
-if (pagination?.limit && !pagination) {
-  list = list.slice(0, Astro.props.pagination?.limit || 6);
+if (propServices) {
+  list = propServices;
+} else {
+  list = await getCollectionCTM(
+    servicesFolder as "services",
+    Astro.currentLocale,
+  );
+
+  // Sort list by date
+  list = sortByDate(list);
+  totalPages = Math.ceil(list?.length / config.settings.pagination);
+
+  if (pagination) {
+    const indexOfLastPost = pagination?.currentPage * config.settings.pagination;
+    const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+    list = list.slice(indexOfFirstPost, indexOfLastPost);
+  }
+
+  // Limit the number of items to be displayed
+  if (pagination?.limit && !pagination) {
+    list = list.slice(0, Astro.props.pagination?.limit || 6);
+  }
 }
 ---
 

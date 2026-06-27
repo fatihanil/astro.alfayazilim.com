@@ -35,6 +35,7 @@ const serviceSlugTranslationMap: Record<string, string> = {
   "system-integration": "sistem-entegrasyonu",
   "quality-assurance": "kalite-guvence-hizmeti",
   "sap-solutions": "alfa-cozumleri/sap-cozumleri",
+  "alfa-solutions": "alfa-cozumleri",
   "sap-consultancy/sap-is-u-consultancy": "sap-danismanlik/sap-is-u-danismanligi",
   "sap-consultancy/sap-crm-consultancy": "sap-danismanlik/sap-crm-danismanligi",
   "sap-consultancy/business-intelligence": "sap-danismanlik/is-zekasi-analitigi",

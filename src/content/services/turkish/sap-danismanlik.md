@@ -6,6 +6,15 @@ metaTitle: "SAP Danışmanlık | ALFA Business Technologies"
 metaDescription: "ALFA Business Technologies SAP danışmanlık hizmetleri — IS-U, CRM, ERP, İş Zekası, HANA/S4HANA ve Doküman Yönetimi konularında uzman çözümler."
 customSlug: "sap-danismanlik"
 weight: 1
+isCategory: true
+childSlugs:
+  - "sap-danismanlik/sap-is-u-danismanligi"
+  - "sap-danismanlik/sap-crm-danismanligi"
+  - "sap-danismanlik/sap-erp-danismanligi"
+  - "sap-danismanlik/is-zekasi-analitigi"
+  - "sap-danismanligi/sap-hana-s4hana"
+  - "sap-danismanligi/sap-teknolojik-danismanlik"
+  - "sap-danismanligi/sap-dokuman-yonetimi-ve-arsivleme"
 ---
 
 ## SAP Danışmanlık

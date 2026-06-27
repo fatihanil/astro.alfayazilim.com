@@ -50,6 +50,8 @@ const serviceCollection = defineCollection({
     icon: z.string().optional(),
     imagePosition: z.string().optional(),
     image3: z.string().optional(),
+    isCategory: z.boolean().optional(),
+    childSlugs: z.array(z.string()).optional(),
   }),
 });
 
