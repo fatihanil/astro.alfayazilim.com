@@ -1,9 +1,9 @@
 # Site Configuration
 [site]
-  title            = "Lumio Lite"
+  title            = "Alfa Business Technologies"
   description      = "Lumio is a modern, high-performance Astro theme crafted for IT companies, digital agencies, and consulting firms. Built with Tailwind CSS for a clean, professional, and fully responsive experience."
-  tagline          = "The Modern Astro Theme for IT & Consulting Businesses"
-  taglineSeparator = "" # default is " - " 
+  tagline          = ""
+  taglineSeparator = "" # default is " - "
   baseUrl          = "https://lumio-lite-astro.pages.dev" # Base URL for the site and used in OpenGraph meta tags.
   logo             = "/images/alfa_bt_logo.webp" # Path to the site's logo
   logoWhite        = "/images/alfa_bt_logo.webp" # Path to the site's logo for white/dark variants
