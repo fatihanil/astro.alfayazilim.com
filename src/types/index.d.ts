@@ -173,6 +173,7 @@ export interface ChildNavigationLink {
   rel?: string;
   target?: string;
   hasChildren?: boolean;
+  noLocalePrefix?: boolean;
   badge?: Badge;
   children?: ChildNavigationLink[];
 }

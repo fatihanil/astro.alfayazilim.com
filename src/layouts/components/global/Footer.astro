@@ -84,10 +84,12 @@ const copyrightText = copyright.text.replace("{year}", currentYear);
                     <Button
                       tag="a"
                       variant="text"
-                      url={getLocaleUrlCTM(
-                        item.url as string,
-                        Astro.currentLocale,
-                      )}
+                      url={item.noLocalePrefix
+                        ? (item.url as string)
+                        : getLocaleUrlCTM(
+                            item.url as string,
+                            Astro.currentLocale,
+                          )}
                       label={item.name}
                       class="text-text-inverse/50 hover:text-text-inverse transition-colors"
                     />

@@ -244,6 +244,7 @@
           "enable": true,
           "name": "KVKK",
           "url": "/kvkk/",
+          "noLocalePrefix": true,
           "weight": 5
         }
       ]

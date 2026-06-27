@@ -34,10 +34,14 @@ imageToPreload = imageToPreload
 {isRootPath && (
   <script is:inline>
     if (typeof window !== "undefined" && window.location.pathname === "/") {
-      const primaryLanguage =
-        (navigator.languages && navigator.languages[0]) || navigator.language || "";
-      if (primaryLanguage.toLowerCase().startsWith("tr")) {
-        window.location.replace("/tr/");
+      const isInternalNav =
+        document.referrer && new URL(document.referrer).hostname === window.location.hostname;
+      if (!isInternalNav) {
+        const primaryLanguage =
+          (navigator.languages && navigator.languages[0]) || navigator.language || "";
+        if (primaryLanguage.toLowerCase().startsWith("tr")) {
+          window.location.replace("/tr/");
+        }
       }
     }
   </script>
