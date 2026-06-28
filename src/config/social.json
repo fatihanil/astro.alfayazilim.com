@@ -1,7 +1,7 @@
 {
   "main": [
     {
-      "enable": true,
+      "enable": false,
       "label": "Facebook",
       "lucideIcon": "facebook",
       "url": "https://www.facebook.com",
@@ -9,7 +9,7 @@
       "isForShareProject": true
     },
     {
-      "enable": true,
+      "enable": false,
       "label": "Twitter",
       "lucideIcon": "twitter-new",
       "url": "https://www.x.com",
@@ -20,7 +20,7 @@
       "enable": true,
       "label": "Linkedin",
       "lucideIcon": "linkedin",
-      "url": "https://www.linkedin.com",
+      "url": "https://www.linkedin.com/in/alfabusinesstechnologies/",
       "isForShare": false,
       "isForShareProject": true
     },
@@ -28,7 +28,7 @@
       "enable": true,
       "label": "Instagram",
       "lucideIcon": "instagram",
-      "url": "https://www.instagram.com",
+      "url": "https://www.instagram.com/alfa_yazilim_danismanlik/",
       "isForShare": false,
       "isForShareProject": true
     },
