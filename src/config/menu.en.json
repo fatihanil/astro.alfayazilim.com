@@ -24,15 +24,7 @@
       "enable": true,
       "name": "Why Alfa?",
       "weight": 2,
-      "url": "/why-alfa/",
-      "badge": {
-        "enable": true,
-        "label": "New",
-        "color": "accent",
-        "_color_comment": "color expected value - accent, info, success, danger, dark",
-        "type": "text",
-        "_type_comment": "type expected value - text, dot"
-      }
+      "url": "/why-alfa/"
     },
     {
       "enable": true,

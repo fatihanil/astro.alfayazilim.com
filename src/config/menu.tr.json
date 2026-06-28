@@ -24,15 +24,7 @@
       "enable": true,
       "name": "Neden Alfa?",
       "weight": 2,
-      "url": "/neden-alfa/",
-      "badge": {
-        "enable": true,
-        "label": "Yeni",
-        "color": "accent",
-        "_color_comment": "color expected value - accent, info, success, danger, dark",
-        "type": "text",
-        "_type_comment": "type expected value - text, dot"
-      }
+      "url": "/neden-alfa/"
     },
     {
       "enable": true,
