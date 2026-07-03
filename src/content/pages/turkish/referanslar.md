@@ -10,44 +10,6 @@ metaDescription: "ALFA Business Technologies Türkiye genelinde ve uluslararası
 
 ALFA Business Technologies, Türkiye ve uluslararası alanda 70+ önde gelen işletmeye hizmet sunmaktan gurur duymaktadır. Referans portföyümüz çeşitli sektörlere yayılmakta olup geniş uzmanlığımızı ve tutarlı teslimat mükemmeliyetimizi yansıtmaktadır.
 
-## Sektörlere Göre Müşterilerimiz
-
-### Bankacılık & Finans
-- Akbank
-
-### Enerji & Kamu Hizmetleri
-- AYEDAŞ
-- Bursa Gaz
-- Kayseri Gaz
-- İPRAGAZ
-
-### Üretim
-- Borusan
-- BSH Home Appliances
-- Eczacıbaşı
-- LG Electronics
-- Sony
-- Sumitomo Electric
-
-### Gıda & İçecek
-- Ülker
-- Konya Şeker
-- Mondelez
-- Kraft Foods
-
-### Otomotiv & Lojistik
-- TEMSA
-- Arkas
-
-### İlaç
-- Sandoz
-
-### Eğitim
-- Sabancı Üniversitesi
-
-### Telekomünikasyon
-- Netaş
-
 ## Müşterilerimiz Neden Bize Güveniyor?
 
 - Zaman ve bütçe içinde proje teslimatına %100 bağlılık

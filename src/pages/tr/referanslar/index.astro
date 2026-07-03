@@ -4,6 +4,7 @@ import { getEntryCTM } from "@/lib/contentParser.astro";
 import { render } from "astro:content";
 import ContactSection from "@/components/sections/ContactSection.astro";
 import PageHeader from "@/components/widgets/PageHeader.astro";
+import ReferencesLogoSection from "@/components/sections/ReferencesLogoSection.astro";
 
 const entry = await getEntryCTM("pages", "referanslar", "tr");
 const { Content } = await render(entry);
@@ -14,6 +15,7 @@ const { Content } = await render(entry);
     title={entry.data.title}
     breadcrumbTitle={entry.data.breadcrumbTitle || entry.data.title}
   />
+  <ReferencesLogoSection />
   <section class="section">
     <div class="container">
       <div class="prose-styles content">

@@ -1,0 +1,51 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import type { z } from "astro/zod";
+import type { referencesLogosSectionSchema } from "@/sections.schema";
+
+type SectionType = z.infer<typeof referencesLogosSectionSchema>;
+
+const data = (
+  await getEntryCTM("sections", "references-logos", Astro.currentLocale)
+)?.data as SectionType;
+
+if (!data?.enable) return;
+
+const { groups } = data;
+---
+
+<section class="section">
+  <div class="container space-y-12">
+    {
+      groups.map((group) => (
+        <div>
+          <h3
+            class="border-border-dark/15 mb-6 border-b pb-3 text-sm font-semibold uppercase tracking-widest text-gray-500"
+            data-aos="fade-up-sm"
+            data-aos-duration="600">
+            {group.title}
+          </h3>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {group.logos.map((logo, i) => (
+              <div
+                class="border-border-dark/10 flex h-28 items-center justify-center rounded border bg-white p-4"
+                data-aos="fade-up-sm"
+                data-aos-duration="600"
+                data-aos-delay={String(i * 50)}>
+                <OptimizedImage
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={160}
+                  height={80}
+                  class="max-h-16 w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

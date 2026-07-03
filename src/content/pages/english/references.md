@@ -10,44 +10,6 @@ metaDescription: "ALFA Business Technologies serves 70+ leading enterprises acro
 
 ALFA Business Technologies is proud to serve 70+ leading enterprises across Turkey and internationally. Our reference portfolio spans diverse industries, demonstrating our broad expertise and consistent delivery excellence.
 
-## Clients by Industry
-
-### Banking & Finance
-- Akbank
-
-### Energy & Utilities
-- AYEDAŞ
-- Bursa Gas
-- Kayseri Gas
-- İPRAGAZ
-
-### Manufacturing
-- Borusan
-- BSH Home Appliances
-- Eczacıbaşı
-- LG Electronics
-- Sony
-- Sumitomo Electric
-
-### Food & Beverage
-- Ülker
-- Konya Şeker
-- Mondelez
-- Kraft Foods
-
-### Automotive & Logistics
-- TEMSA
-- Arkas
-
-### Pharmaceuticals
-- Sandoz
-
-### Education
-- Sabancı University
-
-### Telecommunications
-- Netaş
-
 ## Why Our Clients Trust Us
 
 - 100% commitment to project delivery within time and budget

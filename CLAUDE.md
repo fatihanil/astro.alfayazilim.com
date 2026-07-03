@@ -10,6 +10,7 @@ npm run build        # Build for production (toml:watch → astro build → remo
 npm run preview      # Build + preview locally
 npm run format       # Prettier format src/
 npm run astro-check  # TypeScript/Astro type check
+npm run deploy:cf    # Deploy to Cloudflare Pages via wrangler
 ```
 
 **Critical:** Always run `npm run build` (not `astro build` directly) — the `toml:watch` script must run first to regenerate `.astro/config.generated.json` from `src/config/config.toml`.
@@ -36,24 +37,35 @@ All runtime config comes from `.astro/config.generated.json`. Never import `conf
 
 Note: `@/components/` maps to `src/layouts/components/`, NOT `src/components/`.
 
-## Font Yapılandırması
+## Font Configuration
 
-`src/config/fonts.json` dosyası Google Fonts tanımlarını tutar. Aktif font **Source Sans 3**'tür; Türkçe karakter desteği için `subsets: ["latin", "latin-ext"]` zorunludur. CSS değişkeni `--font-primary` olarak tanımlıdır.
+`src/config/fonts.json` holds Google Fonts definitions. Active font is **Source Sans 3**; `subsets: ["latin", "latin-ext"]` is required for Turkish character support. CSS variable is `--font-primary`.
 
-> **Not:** Font değiştirilirken `latin-ext` subset'ini kaldırmayın; Türkçe karakterler (ğ, ş, ı, ö, ü, ç) bozulur.
+> **Note:** Never remove `latin-ext` when changing fonts — Turkish characters (ğ, ş, ı, ö, ü, ç) will break.
 
 ## i18n Architecture
 
-Desteklenen diller yalnızca **`en`** ve **`tr`**'dir (Fransızca Haziran 2026'da kaldırıldı). `src/config/language.json` dil tanımlarını içerir; üçüncü bir dil eklemek için hem bu dosya hem de içerik dizini ve menu dosyası gerekir.
+Supported languages are **`en`** and **`tr`** only (French was removed in June 2026). `src/config/language.json` defines language entries; adding a third language requires that file, a new content directory, and a new menu file.
 
-- `en` (default, no URL prefix) ve `tr` (prefix `/tr/`)
+- `en` (default, no URL prefix) and `tr` (prefix `/tr/`)
 - `src/config/language.json` defines `languageCode` and `contentDir` (`english` / `turkish`)
 - `showDefaultLangInUrl: false` — EN routes are at `/path/`, TR routes at `/tr/path/`
 - Language-specific content lives in `src/content/{collection}/english/` and `.../turkish/`
 
+### UI Strings (`src/i18n/{lang}.json`)
+
+Button labels, page headings, and other UI text are stored in `src/i18n/en.json` and `src/i18n/tr.json`. Access them via `useTranslations(lang)` from `src/lib/utils/i18nUtils.ts`:
+
+```ts
+const t = await useTranslations(locale);
+t("services.readMore"); // returns the translated string
+```
+
+`useTranslations` merges `menu.{lang}.json` + `i18n/{lang}.json` into one translation function with dot-notation key access.
+
 ### Content Filtering Functions (`src/lib/contentParser.astro`)
 
-- `getCollectionCTM(collectionName, lang)` — returns all entries for a language (filters by `contentDir`, excludes `-index` entries, sorts by `weight`)
+- `getCollectionCTM(collectionName, lang)` — returns all entries for a language (filters by `contentDir`, excludes `-index` entries, sorts by `weight`). **Filters `draft: true` entries in production builds.**
 - `getEntryCTM(collectionName, subCollectionName, lang)` — returns a single entry by name (e.g., `getEntryCTM("sections", "home-banner-two", "tr")`)
 
 ### URL Building (`src/lib/utils/i18nUtils.ts`)
@@ -62,26 +74,26 @@ Desteklenen diller yalnızca **`en`** ve **`tr`**'dir (Fransızca Haziran 2026'd
 - `getEntryRouteParam(entry)` — returns `entry.data.customSlug` if set, otherwise the last path segment of `entry.id`
 - `getEntrySlugCTM(entry, lang)` — combines the above two; used in cards to build href links
 
-### Dil Değiştirici URL Çevirisi (`src/lib/utils/localizedRouteResolver.ts`)
+### Language Switcher URL Translation (`src/lib/utils/localizedRouteResolver.ts`)
 
-`getLocalizedPathnameCTM(pathname, sourceLang, targetLang)` fonksiyonu mevcut sayfanın URL'sini hedef dile çevirir. Dil değiştirici (LanguageSwitcher) ve Header navigasyon butonu bunu kullanır.
+`getLocalizedPathnameCTM(pathname, sourceLang, targetLang)` translates the current page's URL to the target language. Used by LanguageSwitcher and the Header navigation button.
 
-Çeviri **statik haritalarla** yapılır (content lookup değil):
+Translation uses **static maps** (not content lookups):
 
-| Harita | Amacı |
+| Map | Purpose |
 |---|---|
-| `pageSlugTranslationMap` | Tek-segment sayfa slug'ları: `contact` → `iletisim`, `gdpr` → `kvkk` vb. |
-| `serviceSlugTranslationMap` | Servis `customSlug`'ları: `sap-consultancy/...` → `sap-danismanlik/...` vb. |
-| `multiSegmentPageTranslationMap` | Çok-segment sayfalar: `corporate/about` → `kurumsal/hakkimizda` vb. |
-| `fixedUrlPages` | Lokale prefix almayan sabit URL'ler: `kvkk` → `/kvkk/` |
+| `pageSlugTranslationMap` | Single-segment page slugs: `contact` → `iletisim`, `gdpr` → `kvkk`, etc. |
+| `serviceSlugTranslationMap` | Service `customSlug`s: `sap-consultancy/...` → `sap-danismanlik/...`, etc. |
+| `multiSegmentPageTranslationMap` | Multi-segment pages: `corporate/about` → `kurumsal/hakkimizda`, etc. |
+| `fixedUrlPages` | Pages without locale prefix: `kvkk` → `/kvkk/` |
 
-**Yeni sayfa veya servis eklendiğinde** bu haritalara karşılıklı giriş yapılmalıdır, aksi hâlde dil değiştirici yanlış URL üretir.
+**When adding a new page or service**, add matching entries to these maps — otherwise the language switcher will produce incorrect URLs.
 
-**Header navigasyon butonu:** `config.toml`'daki `[settings.navigationButton].url` değeri Header.astro'da `getLocalizedPathnameCTM` ile lokalize edilerek render edilir — ham URL doğrudan kullanılmaz.
+**Header navigation button:** The `[settings.navigationButton].url` value in `config.toml` is localized via `getLocalizedPathnameCTM` in Header.astro — the raw URL is never rendered directly.
 
-### Sabit URL Sayfalar
+### Fixed-URL Pages
 
-`/kvkk/` sayfası `/tr/kvkk/` gibi bir karşılığı olmayan, dil fark etmeksizin tek URL'de sunan özel bir sayfadır. `fixedUrlPages` kaydı ve `src/pages/kvkk/index.astro` dosyası ile uygulanmıştır. Benzer bir sayfa eklenecekse aynı pattern izlenmelidir.
+`/kvkk/` is served at a single URL regardless of locale (no `/tr/` equivalent). Implemented with a `fixedUrlPages` entry and `src/pages/kvkk/index.astro`. Follow the same pattern for similar pages.
 
 ## Routing Architecture
 
@@ -91,7 +103,7 @@ Desteklenen diller yalnızca **`en`** ve **`tr`**'dir (Fransızca Haziran 2026'd
 |---|---|
 | `src/pages/[...lang]/index.astro` | `/` (EN) and `/tr/` (TR) |
 | `src/pages/[...lang]/services/index.astro` | `/services/` only — returns `{ lang: undefined }` |
-| `src/pages/[...lang]/services/[...slug].astro` | `/services/{customSlug}/` for each EN service (lang: undefined) |
+| `src/pages/[...lang]/services/[...slug].astro` | `/services/{customSlug}/` for each EN service (lang: undefined); **handles `isCategory`** |
 | `src/pages/tr/hizmetler/index.astro` | `/tr/hizmetler/` |
 | `src/pages/tr/hizmetler/[...slug].astro` | `/tr/hizmetler/{customSlug}/` for each TR service |
 | `src/pages/corporate/index.astro` | `/corporate/` |
@@ -107,7 +119,10 @@ Desteklenen diller yalnızca **`en`** ve **`tr`**'dir (Fransızca Haziran 2026'd
 | `src/pages/tr/neden-alfa/index.astro` | `/tr/neden-alfa/` |
 | `src/pages/tr/referanslar/index.astro` | `/tr/referanslar/` |
 | `src/pages/tr/iletisim/index.astro` | `/tr/iletisim/` |
-| `src/pages/kvkk/index.astro` | `/kvkk/` (sabit URL — TR içerik, locale prefix yok) |
+| `src/pages/kvkk/index.astro` | `/kvkk/` (fixed URL — TR content, no locale prefix) |
+| `src/pages/404.astro` | 404 error page |
+
+> **Note:** `src/pages/services/[...slug].astro` is a legacy duplicate of the `[...lang]` version and lacks `isCategory` support. The canonical EN service detail route is `src/pages/[...lang]/services/[...slug].astro`.
 
 **Important routing rule:** Service catch-all routes must use `{ lang: undefined }` in `getStaticPaths` to prevent Astro's i18n system from auto-generating `/tr/services/...` mirror pages. The TR equivalent is handled by the explicit `tr/hizmetler/[...slug].astro` file.
 
@@ -119,6 +134,8 @@ Defined in `src/content.config.ts`:
 - `homepage` — homepage-specific content
 - `pages` — standalone page content (`src/content/pages/{english,turkish}/`)
 
+Schema types live in `src/sections.schema.ts` (for sections/page fields) and `src/content.config.ts` (collection definitions including service-specific fields like `isCategory`, `childSlugs`).
+
 ### Service Content & `customSlug`
 
 Services use `customSlug` in frontmatter to define multi-level URL paths:
@@ -127,7 +144,24 @@ customSlug: "sap-consultancy/sap-is-u-consultancy"
 ```
 This maps to `/services/sap-consultancy/sap-is-u-consultancy/` (EN) or `/tr/hizmetler/sap-danismanlik/sap-is-u-danismanligi/` (TR).
 
-`-index.md` files (e.g., `src/content/services/english/-index.md`) provide metadata for listing pages and are excluded from `getCollectionCTM` results (they're loaded separately via `getEntryCTM`).
+`-index.md` files (e.g., `src/content/services/english/-index.md`) provide metadata for listing pages and are excluded from `getCollectionCTM` results (loaded separately via `getEntryCTM`).
+
+### Service Category Pages (`isCategory` + `childSlugs`)
+
+Category service pages (e.g., "SAP Consultancy", "Alfa Solutions") aggregate child services under a landing page. Set these fields in the service frontmatter:
+
+```yaml
+isCategory: true
+childSlugs:
+  - "sap-consultancy/sap-is-u-consultancy"
+  - "sap-consultancy/sap-crm-consultancy"
+```
+
+When `isCategory: true`, `src/pages/[...lang]/services/[...slug].astro` fetches the listed `childSlugs` entries and renders them below the page content via `ServiceListSection`. The child slugs must match the `customSlug` values of sibling service entries. Both the EN and TR category files must have consistent (language-specific) `childSlugs`.
+
+### Content Drafts
+
+Set `draft: true` in any content frontmatter to exclude it from production builds. `getCollectionCTM` applies this filter automatically in `PROD` mode; drafts are visible in dev.
 
 ## Menu Configuration
 
@@ -140,29 +174,36 @@ Menu URLs are stored **without** the `/tr/` prefix in `menu.tr.json`. The system
 
 Homepage sections are data-driven markdown files in `src/content/sections/{lang}/`. Each section component calls `getEntryCTM("sections", "section-name", locale)` to load its content. The `enable: true/false` field in frontmatter controls whether the section renders.
 
+## MDX Auto-Imported Shortcodes
+
+The following shortcodes are available in any `.mdx` content file without explicit imports (configured via `astro-auto-import` in `astro.config.mjs`):
+
+- `<ImageList>` / `<ImageItem>` — image gallery blocks
+- `<InfoBlockList>` / `<InfoBlockItem>` — structured info block lists
+
 ## Contact Form
 
-Form sağlayıcısı **formsubmit.co**'dur. Gönderimler `info@alfayazilim.com` adresine iletilir.
+Form provider is **formsubmit.co**. Submissions are forwarded to `info@alfayazilim.com`.
 
-İlgili `config.toml` anahtarları (`[settings]` altında):
-- `contactFormAction` — formsubmit.co endpoint URL'i (e-posta adresi içerir)
+Relevant `config.toml` keys (under `[settings]`):
+- `contactFormAction` — formsubmit.co endpoint URL (contains email address)
 - `contactFormProvider` — `"formsubmit.co"` | `"formspree"` | `"netlify"`
-- `turnstileSiteKey` — Cloudflare Turnstile site key'i (public)
+- `turnstileSiteKey` — Cloudflare Turnstile site key (public)
 
 ### Cloudflare Turnstile
 
-`src/layouts/components/widgets/ContactForm.astro` bileşenine entegre edilmiştir:
+Integrated in `src/layouts/components/widgets/ContactForm.astro`:
 
-- `turnstileSiteKey` config'den okunur; boşsa widget render edilmez.
-- Turnstile JS'i `is:inline` script tag ile `challenges.cloudflare.com/turnstile/v0/api.js`'den yüklenir.
-- Submit handler'da `cf-turnstile-response` alanı kontrol edilir; boşsa gönderim engellenir.
-- Site key'i güncellemek için yalnızca `config.toml` → `turnstileSiteKey` değerini değiştirip `npm run toml:watch` çalıştırmak yeterlidir.
+- `turnstileSiteKey` is read from config; if empty, the widget is not rendered.
+- Turnstile JS is loaded via `is:inline` script tag from `challenges.cloudflare.com/turnstile/v0/api.js`.
+- The submit handler checks `cf-turnstile-response`; if empty, the submission is blocked.
+- To update the site key, only change `config.toml` → `turnstileSiteKey` and run `npm run toml:watch`.
 
-**Not:** formsubmit.co sunucu tarafı Turnstile doğrulaması yapmaz; doğrulama yalnızca istemci tarafındadır (bot engellemek için yeterlidir).
+**Note:** formsubmit.co does not perform server-side Turnstile validation; validation is client-side only (sufficient for bot blocking).
 
-## Footer Copyright Yılı
+## Footer Copyright Year
 
-`config.toml` ve `src/i18n/{en,tr}.json` dosyalarındaki copyright metninde `{year}` placeholder'ı kullanılabilir. `Footer.astro` bunu runtime'da `new Date().getFullYear()` ile replace eder — sabit yıl yazmak yerine `{year}` kullanılmalıdır.
+Use the `{year}` placeholder in copyright text in `config.toml` and `src/i18n/{en,tr}.json`. `Footer.astro` replaces it at runtime with `new Date().getFullYear()` — never hardcode the year.
 
 ## Image Optimization
 

@@ -891,3 +891,19 @@ export const sectionsSchema = z
     fourZeroFourSectionSchema,
   })
   .partial();
+
+export const referencesLogosSectionSchema = z.object({
+  enable: z.boolean(),
+  groups: z.array(
+    z.object({
+      title: z.string(),
+      logos: z.array(
+        z.object({
+          name: z.string(),
+          src: z.string(),
+          alt: z.string(),
+        }),
+      ),
+    }),
+  ),
+});
