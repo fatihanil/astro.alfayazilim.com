@@ -20,6 +20,8 @@ npm run deploy:cf    # Deploy to Cloudflare Pages via wrangler
 Remove-Item -LiteralPath "path\to\[...lang]\services\[single].astro" -Force
 ```
 
+**Deployment:** `netlify.toml` and `vercel.json` also exist for Netlify/Vercel deploys alongside `deploy:cf` (Cloudflare) — this project isn't Cloudflare-only.
+
 ## Configuration Pipeline
 
 `src/config/config.toml` → `scripts/toml-watcher.mjs` → `.astro/config.generated.json`
@@ -121,6 +123,7 @@ Translation uses **static maps** (not content lookups):
 | `src/pages/tr/iletisim/index.astro` | `/tr/iletisim/` |
 | `src/pages/kvkk/index.astro` | `/kvkk/` (fixed URL — TR content, no locale prefix) |
 | `src/pages/404.astro` | 404 error page |
+| `src/pages/robots.txt.ts` | `/robots.txt` — generated from `config.seo.robotsTxt` (`enable`, `disallow`) |
 
 > **Note:** `src/pages/services/[...slug].astro` is a legacy duplicate of the `[...lang]` version and lacks `isCategory` support. The canonical EN service detail route is `src/pages/[...lang]/services/[...slug].astro`.
 
@@ -135,6 +138,8 @@ Defined in `src/content.config.ts`:
 - `pages` — standalone page content (`src/content/pages/{english,turkish}/`)
 
 Schema types live in `src/sections.schema.ts` (for sections/page fields) and `src/content.config.ts` (collection definitions including service-specific fields like `isCategory`, `childSlugs`).
+
+`teamCollection` is also defined in `src/content.config.ts` but is **not** wired into the exported `collections` object and has no backing `src/content/team/` directory — it's dead code, not an active feature. Don't build against it without first adding it to `collections` and creating the content directory.
 
 ### Service Content & `customSlug`
 
